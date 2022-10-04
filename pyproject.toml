@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "no_name"
+name = "foxreview"
 version = "0.1.0"
 description = "Get better reviews on Google"
 authors = ["Rasul Kireev <me@rasulkireev.com>"]

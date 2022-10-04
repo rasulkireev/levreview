@@ -1,5 +1,5 @@
 from allauth.account.forms import SignupForm, LoginForm
-from no_name.utils import DivErrorList
+from foxreview.utils import DivErrorList
 
 class CustomSignUpForm(SignupForm):
     def __init__(self, *args, **kwargs):
