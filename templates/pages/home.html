@@ -1,0 +1,27 @@
+{% load webpack_loader static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Django Project</title>
+
+  {% stylesheet_pack 'hotwire' %}
+  {% javascript_pack 'hotwire' attrs='defer' %}
+
+</head>
+<body>
+  {% include "pages/components/hero.html" %}
+  {% include "pages/components/how-it-works.html" %}
+
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+  </div>
+
+  {% include "pages/components/pricing.html" %}
+</body>
+</html>
