@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     './templates/**/*.html',
-    './**/*.py',
+    './foxreview/utils.py',
   ],
   theme: {
     extend: {},

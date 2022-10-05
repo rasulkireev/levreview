@@ -22,14 +22,9 @@
         <input type="hidden" name="remember" value="true" />
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
-            {{ form.username.errors | safe }}
-            <label for="username" class="sr-only">Username</label>
-            {% render_field form.username placeholder="Username" id="username" name="username" type="text" autocomplete="username" required=True class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
-          </div>
-          <div>
             {{ form.email.errors | safe }}
             <label for="email" class="sr-only">Username</label>
-            {% render_field form.email id="email" name="email" placeholder="Email" type="email" autocomplete="email" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
+            {% render_field form.email id="email" name="email" placeholder="Email" type="email" autocomplete="email" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
           </div>
           <div>
             {{ form.password1.errors | safe }}

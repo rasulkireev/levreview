@@ -1,0 +1,89 @@
+{% extends "dbase.html" %}
+{% load static %}
+
+{% block content %}
+<!-- 3 column wrapper -->
+<div class="flex-grow w-full mx-auto max-w-7xl lg:flex xl:px-8">
+  <!-- Left sidebar & main wrapper -->
+  <div class="flex-1 min-w-0 bg-white xl:flex">
+    <!-- Account profile -->
+    <div class="bg-white xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
+      <div class="py-6 pl-4 pr-6 sm:pl-6 lg:pl-8 xl:pl-0">
+        <div class="flex items-center justify-between">
+          <div class="flex-1 space-y-8">
+            <div class="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
+              <!-- Action buttons -->
+              <div class="flex flex-col sm:flex-row xl:flex-col">
+                <button type="button" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 xl:w-full">New Project</button>
+              </div>
+            </div>
+            <!-- Meta info -->
+            <div class="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-8 xl:flex-col xl:space-x-0 xl:space-y-6">
+              <div class="flex items-center space-x-2">
+                <!-- Heroicon name: mini/check-badge -->
+                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-sm font-medium text-gray-500">Pro Member</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <!-- Heroicon name: mini/rectangle-stack -->
+                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M5.127 3.502L5.25 3.5h9.5c.041 0 .082 0 .123.002A2.251 2.251 0 0012.75 2h-5.5a2.25 2.25 0 00-2.123 1.502zM1 10.25A2.25 2.25 0 013.25 8h13.5A2.25 2.25 0 0119 10.25v5.5A2.25 2.25 0 0116.75 18H3.25A2.25 2.25 0 011 15.75v-5.5zM3.25 6.5c-.04 0-.082 0-.123.002A2.25 2.25 0 015.25 5h9.5c.98 0 1.814.627 2.123 1.502a3.819 3.819 0 00-.123-.002H3.25z" />
+                </svg>
+                <span class="text-sm font-medium text-gray-500">8 Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white lg:min-w-0 lg:flex-1">
+      <div class="pt-4 pb-4 pl-4 pr-6 border-t border-b border-gray-200 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+        <div class="flex items-center">
+          <h1 class="flex-1 text-lg font-medium">Projects</h1>
+        </div>
+        <div class="my-5 text-center">
+          <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+          <h3 class="mt-2 text-sm font-medium text-gray-900">No projects</h3>
+          <p class="mt-1 text-sm text-gray-500">Get started by creating a new project.</p>
+          <div class="mt-6">
+            <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              <!-- Heroicon name: mini/plus -->
+              <svg class="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+              </svg>
+              New Project
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity feed -->
+  <div class="pr-4 bg-gray-50 sm:pr-6 lg:flex-shrink-0 lg:border-l lg:border-gray-200 lg:pr-8 xl:pr-0">
+    <div class="pl-6 lg:w-80">
+      <div class="pt-6 pb-2">
+        <h2 class="text-sm font-semibold">Activity</h2>
+      </div>
+      <div>
+        <ul role="list" class="divide-y divide-gray-200">
+          <li class="py-4">
+            <div class="flex space-x-3">
+              <div class="flex-1 space-y-1">
+                <div class="flex items-center justify-between space-x-3">
+                  <p class="text-sm text-gray-500">No Activity Yet</p>
+                  <p class="text-sm text-gray-500"></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

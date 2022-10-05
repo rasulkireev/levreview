@@ -24,8 +24,8 @@
         </button>
       </div>
       <div class="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-        <a href="#" class="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">Sign in</a>
-        <a href="#" class="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm whitespace-nowrap hover:bg-orange-700">Sign up</a>
+        <a href="{% url 'account_login' %}" class="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900">Sign in</a>
+        <a href="{% url 'account_signup' %}" class="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm whitespace-nowrap hover:bg-orange-700">Sign up</a>
       </div>
     </div>
   </div>
@@ -60,10 +60,10 @@
       </div>
       <div class="px-5 py-6 space-y-6">
         <div>
-          <a href="#" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700">Sign up</a>
+          <a href="{% url 'account_signup' %}" class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700">Sign up</a>
           <p class="mt-6 text-base font-medium text-center text-gray-500">
             Existing customer?
-            <a href="#" class="text-orange-600 hover:text-orange-500">Sign in</a>
+            <a href="{% url 'account_login' %}" class="text-orange-600 hover:text-orange-500">Sign in</a>
           </p>
         </div>
       </div>

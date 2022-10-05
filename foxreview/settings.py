@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "pages.apps.PagesConfig",
     "users.apps.UsersConfig",
+    "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
@@ -148,12 +149,11 @@ SITE_ID = 1
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "dashboard"
 ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 
-ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_SESSION_REMEMBER = True
