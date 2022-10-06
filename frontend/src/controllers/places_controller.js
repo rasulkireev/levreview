@@ -1,11 +1,24 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "field", "map", "info" ];
+  static targets = [ "name", "address", "phoneNumber", "placeId", "map", "info" ];
+
   connect() {
     if (typeof(window.google) != "undefined") {
       this.initMap();
     }
+  }
+
+  populateForm(
+    name,
+    address,
+    place_id,
+    phone_number
+  ) {
+    this.nameTarget.value = name;
+    this.addressTarget.value = address;
+    this.phoneNumberTarget.value = phone_number;
+    this.placeIdTarget.value = place_id;
   }
 
   initMap() {
@@ -17,12 +30,13 @@ export default class extends Controller {
       }
     );
 
-    const autocomplete = new window.google.maps.places.Autocomplete(this.fieldTarget, {
-      fields: ["place_id", "geometry", "formatted_address", "name"],
+    const mapInput = document.getElementById("mapInput");
+    const autocomplete = new window.google.maps.places.Autocomplete(mapInput, {
+      fields: ["place_id", "geometry", "formatted_address", "name", "formatted_phone_number"],
     });
     autocomplete.bindTo("bounds", map);
 
-    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(this.fieldTarget);
+    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(mapInput);
 
     const infowindow = new window.google.maps.InfoWindow();
     const infowindowContent = this.infoTarget;
@@ -68,6 +82,13 @@ export default class extends Controller {
         infowindowContent.children.namedItem("place-address")
       ).textContent = place.formatted_address;
       infowindow.open(map, marker);
+
+      this.populateForm(
+        place.name,
+        place.formatted_address,
+        place.place_id,
+        place.formatted_phone_number
+      );
     });
   }
 }

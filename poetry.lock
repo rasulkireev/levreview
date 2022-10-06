@@ -166,6 +166,17 @@ requests = "*"
 requests-oauthlib = ">=0.3.0"
 
 [[package]]
+name = "django-model-utils"
+version = "4.2.0"
+description = "Django model mixins and utilities"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=2.0.1"
+
+[[package]]
 name = "django-widget-tweaks"
 version = "1.4.12"
 description = "Tweak the form field rendering in templates, not in python-level form definitions."
@@ -402,7 +413,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "b2e97d72b30c2bd5006ecd7f09dc3b66b064b8ce581ea5a677443ddf578cb8fe"
+content-hash = "8902e8e70114350fb642d169e3487ecb34b8771426ad620cb77ffda05c5e8c51"
 
 [metadata.files]
 arrow = [
@@ -545,6 +556,10 @@ Django = [
 ]
 django-allauth = [
     {file = "django-allauth-0.50.0.tar.gz", hash = "sha256:ee3a174e249771caeb1d037e64b2704dd3c56cfec44f2058fae2214b224d35e8"},
+]
+django-model-utils = [
+    {file = "django-model-utils-4.2.0.tar.gz", hash = "sha256:e7a95e102f9c9653427eadab980d5d59e1dea972913b9c9e01ac37f86bba0ddf"},
+    {file = "django_model_utils-4.2.0-py3-none-any.whl", hash = "sha256:a768a25c80514e0ad4e4a6f9c02c44498985f36c5dfdea47b5b1e8cf994beba6"},
 ]
 django-widget-tweaks = [
     {file = "django-widget-tweaks-1.4.12.tar.gz", hash = "sha256:9bfc5c705684754a83cc81da328b39ad1b80f32bd0f4340e2a810cbab4b0c00e"},

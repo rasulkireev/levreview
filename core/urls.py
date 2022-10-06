@@ -1,7 +1,8 @@
 from django.urls import path
 
-from .views import PlaceFinderView
+from .views import LocationDetailView, LocationCreateView
 
 urlpatterns = [
-    path("", PlaceFinderView.as_view(), name="place-finder"),
+    path("create/", LocationCreateView.as_view(), name="create-location"),
+    path("<str:google_place_id>/", LocationDetailView.as_view(), name="location"),
 ]
