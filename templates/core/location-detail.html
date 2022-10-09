@@ -1,0 +1,22 @@
+{% extends "dbase.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-white lg:min-w-0 md:pt-10 lg:flex-1">
+  <div class="pt-4 pb-4 pl-4 pr-6 border-t border-b border-gray-200 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
+    <div class="flex items-center justify-between">
+      <h1 class="flex-1 text-xl font-medium">{{ object.name }}</h1>
+    </div>
+    <p class="flex space-x-2 text-sm text-gray-500">
+      <span class="text-sm font-medium text-gray-500 truncate group-hover:text-gray-900">{{ location.address }}</span>
+    </p>
+  </div>
+  <div class="p-6">
+    <p class="py-2">Share this link with people to collect reviews:</p>
+    <a href="{% url 'create-review' object.google_place_id %}" class="inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      {{ request.get_host }}{% url 'create-review' object.google_place_id %}
+    </a>
+  </div>
+  {% include "pages/components/activity-feed.html" with reviews=reviews %}
+</div>
+{% endblock content %}

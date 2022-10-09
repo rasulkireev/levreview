@@ -1,6 +1,5 @@
 import "../styles/tailwind.css";
 
-import "@hotwired/turbo";
 import { Application } from "@hotwired/stimulus";
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 import Dropdown from 'stimulus-dropdown';

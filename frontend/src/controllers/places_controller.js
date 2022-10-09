@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "name", "address", "phoneNumber", "placeId", "map", "info" ];
+  static targets = [ "name", "address", "phoneNumber", "placeId" ];
 
   connect() {
     if (typeof(window.google) != "undefined") {
@@ -9,86 +9,56 @@ export default class extends Controller {
     }
   }
 
-  populateForm(
-    name,
-    address,
-    place_id,
-    phone_number
-  ) {
-    this.nameTarget.value = name;
-    this.addressTarget.value = address;
-    this.phoneNumberTarget.value = phone_number;
-    this.placeIdTarget.value = place_id;
-  }
-
   initMap() {
-    const map = new window.google.maps.Map(
-      this.mapTarget,
+    this.map = new window.google.maps.Map(
+      document.getElementById("map"),
       {
-        center: { lat: -33.8688, lng: 151.2195 },
+        center: { lat: 39.5, lng: -98.35 },
         zoom: 13,
       }
     );
 
-    const mapInput = document.getElementById("mapInput");
-    const autocomplete = new window.google.maps.places.Autocomplete(mapInput, {
+    this.autocomplete = new window.google.maps.places.Autocomplete(this.nameTarget, {
       fields: ["place_id", "geometry", "formatted_address", "name", "formatted_phone_number"],
     });
-    autocomplete.bindTo("bounds", map);
+    this.autocomplete.bindTo("bounds", this.map);
+    this.autocomplete.addListener("place_changed", this.placeChanged.bind(this));
 
-    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(mapInput);
 
-    const infowindow = new window.google.maps.InfoWindow();
-    const infowindowContent = this.infoTarget;
-    infowindow.setContent(infowindowContent);
-
-    const marker = new window.google.maps.Marker({ map: map });
-    marker.addListener("click", () => {
-      infowindow.open(map, marker);
+    this.marker = new window.google.maps.Marker({
+      map: this.map,
+      anchorPoint: new window.google.maps.Point(0, -29)
     });
+  }
 
-    autocomplete.addListener("place_changed", () => {
-      infowindow.close();
+  placeChanged() {
+    let place = this.autocomplete.getPlace();
 
-      const place = autocomplete.getPlace();
+    if (!place.geometry) {
+      window.alert(`No details available for input: ${place.name}`);
+      return;
+    }
 
-      if (!place.geometry || !place.geometry.location) {
-        return;
-      }
+    if (place.geometry.viewport) {
+      this.map.fitBounds(place.geometry.viewport);
+    } else {
+      this.map.setCenter(place.geometry.location);
+      this.map.setZoom(17);
+    }
 
-      if (place.geometry.viewport) {
-        map.fitBounds(place.geometry.viewport);
-      } else {
-        map.setCenter(place.geometry.location);
-        map.setZoom(17);
-      }
+    this.marker.setPosition(place.geometry.location);
+    this.marker.setVisible(true);
 
-      // Set the position of the marker using the place ID and location.
-      // @ts-ignore This should be in @typings/googlemaps.
-      marker.setPlace({
-        placeId: place.place_id,
-        location: place.geometry.location,
-      });
+    this.nameTarget.value = place.name;
+    this.addressTarget.value = place.formatted_address;
+    this.phoneNumberTarget.value = place.formatted_phone_number;
+    this.placeIdTarget.value = place.place_id;
 
-      marker.setVisible(true);
+  }
 
-      (
-        infowindowContent.children.namedItem("place-name")
-      ).textContent = place.name;
-      (
-        infowindowContent.children.namedItem("place-id")
-      ).textContent = place.place_id;
-      (
-        infowindowContent.children.namedItem("place-address")
-      ).textContent = place.formatted_address;
-      infowindow.open(map, marker);
-
-      this.populateForm(
-        place.name,
-        place.formatted_address,
-        place.place_id,
-        place.formatted_phone_number
-      );
-    });
+  keydown(event) {
+    if (event.key == "Enter") {
+      event.preventDefault();
+    }
   }
 }

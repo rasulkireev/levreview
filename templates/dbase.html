@@ -19,81 +19,56 @@
 <body class="h-full">
 
   <div class="relative flex flex-col min-h-full">
-
-    <!-- Navbar -->
-    <nav class="flex-shrink-0 bg-orange-600">
-      <div class="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
-          <!-- Logo section -->
-          <div class="flex items-center px-2 lg:px-0 xl:w-64">
-            <div class="flex-shrink-0">
-              <img class="w-auto h-8 rounded-full sm:h-10" src="{% static 'vendors/images/logo.png' %}" alt="Fox Reviews">
-            </div>
-          </div>
-
-          <!-- Links section -->
-          <div class="hidden lg:block lg:w-80">
-            <div class="flex items-center justify-end">
-              <!-- Profile dropdown -->
-              <div data-controller="dropdown" class="relative flex-shrink-0 ml-4">
-                <div>
-                  <button
-                    type="button"
-                    class="flex text-sm text-white bg-orange-700 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-700"
-                    id="user-menu-button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    data-action="dropdown#toggle click@window->dropdown#hide"
-                  >
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80" alt="">
-                  </button>
+    <!-- 3 column wrapper -->
+    <div class="flex-grow w-full max-w-6xl mx-auto lg:flex xl:px-8">
+      <!-- Left sidebar & main wrapper -->
+      <div class="flex-1 min-w-0 bg-white xl:flex">
+        <!-- Account profile -->
+        <div class="bg-white md:pt-10 xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
+          <div class="py-6 pl-4 pr-6 sm:pl-6 lg:pl-8 xl:pl-0">
+            <div class="flex items-center justify-between">
+              <div class="flex-1 space-y-8">
+                <div class="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
+                  <!-- Action buttons -->
+                  <div class="flex flex-col space-y-4 sm:flex-row xl:flex-col">
+                    <a href="{% url 'dashboard' %}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                      Home
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                      Settings
+                    </a>
+                    <a href="{% url 'account_logout' %}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                      Sign Out
+                    </a>
+                  </div>
                 </div>
-
-                <div
-                  class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="user-menu-button"
-                  tabindex="-1"
-                  data-dropdown-target="menu"
-                  data-transition-enter-active="transition ease-out duration-100"
-                  data-transition-enter-from="transform opacity-0 scale-95"
-                  data-transition-enter-to="transform opacity-100 scale-100"
-                  data-transition-leave-active="transition ease-in duration-75"
-                  data-transition-leave-from="transform opacity-100 scale-100"
-                  data-transition-leave-to="transform opacity-0 scale-95"
-                >
-                  <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                <!-- Meta info -->
+                <div class="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-8 xl:flex-col xl:space-x-0 xl:space-y-6">
+                  <div class="flex items-center space-x-2">
+                    <!-- Heroicon name: mini/check-badge -->
+                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm font-medium text-gray-500">Pro Member</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <!-- Heroicon name: mini/rectangle-stack -->
+                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path d="M5.127 3.502L5.25 3.5h9.5c.041 0 .082 0 .123.002A2.251 2.251 0 0012.75 2h-5.5a2.25 2.25 0 00-2.123 1.502zM1 10.25A2.25 2.25 0 013.25 8h13.5A2.25 2.25 0 0119 10.25v5.5A2.25 2.25 0 0116.75 18H3.25A2.25 2.25 0 011 15.75v-5.5zM3.25 6.5c-.04 0-.082 0-.123.002A2.25 2.25 0 015.25 5h9.5c.98 0 1.814.627 2.123 1.502a3.819 3.819 0 00-.123-.002H3.25z" />
+                    </svg>
+                    <span class="text-sm font-medium text-gray-500">{{ num_of_locations }} Location{% if num_of_locations > 1 %}s{% endif %}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {% block content %}
+        {% endblock content %}
+
       </div>
-
-      <!-- Mobile menu, show/hide based on menu state. -->
-      <div class="lg:hidden" id="mobile-menu">
-        <div class="pt-4 pb-3 border-t border-orange-800">
-          <div class="px-2 space-y-1">
-            <a href="#" class="block px-3 py-2 text-base font-medium text-orange-200 rounded-md hover:bg-orange-600 hover:text-orange-100">Your Profile</a>
-
-            <a href="#" class="block px-3 py-2 text-base font-medium text-orange-200 rounded-md hover:bg-orange-600 hover:text-orange-100">Settings</a>
-
-            <a href="#" class="block px-3 py-2 text-base font-medium text-orange-200 rounded-md hover:bg-orange-600 hover:text-orange-100">Sign out</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    {% block content %}
-    {% endblock content %}
-
+    </div>
   </div>
 
     {% block extra_bottom_js %}
