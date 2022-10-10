@@ -61,3 +61,14 @@ class ReviewCreateView(CreateView):
         self.object = form.save()
 
         return super(ReviewCreateView, self).form_valid(form)
+
+
+class ReviewDetailView(LoginRequiredMixin, DetailView):
+    model = Review
+    template_name = "core/review-detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["num_of_locations"] = len(Location.objects.filter(owner=self.request.user))
+
+        return context
