@@ -1,6 +1,16 @@
 {% extends "dbase.html" %}
 {% load static %}
 
+{% block extra_top_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock extra_top_js %}
+
+{% block extra_bottom_js %}
+  <script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "{{ request.get_host }}{% url 'create-review' object.google_place_id %}");
+  </script>
+{% endblock extra_bottom_js %}
+
 {% block content %}
 <div class="bg-white lg:min-w-0 md:pt-10 lg:flex-1">
   <div class="pt-4 pb-4 pl-4 pr-6 border-t border-b border-gray-200 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
@@ -102,7 +112,7 @@
       </div>
     </div>
   </div>
-  <div data-controller="dropdown">
+  <div data-controller="dropdown qrcode">
     <div>
       <button
         type="button"
@@ -134,10 +144,7 @@
       tabindex="-1"
     >
       <div class="p-4" role="none">
-        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-        <a href="{% url 'create-review' object.google_place_id %}" class="inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-          {{ request.get_host }}{% url 'create-review' object.google_place_id %}
-        </a>
+        <div id="qrcode"></div>
       </div>
     </div>
   </div>

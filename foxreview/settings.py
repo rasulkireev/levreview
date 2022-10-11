@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "webpack_boilerplate",
     "widget_tweaks",
+    "django_extensions",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",

@@ -4,7 +4,6 @@ export default class extends Controller {
 static targets = [ "input", "button" ];
 
   connect() {
-    console.log("ready");
     this.inputTarget.setAttribute("size", this.inputTarget.value.length);
   }
 
