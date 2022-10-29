@@ -77,18 +77,17 @@ def successfull_payment_webhook(request):
     except stripe.error.SignatureVerificationError as e:
         return HttpResponse(e, status=400)
 
-    if event.type == "checkout.session.completed":
+    event_types = (
+      "customer.subscription.created",
+      "customer.subscription.updated",
+      "customer.subscription.deleted",
+    )
 
-        subscription = Subscription.sync_from_stripe_data(
-          stripe.Subscription.retrieve(event["data"]["object"]["subscription"])
+    if event["type"] in event_types:
+        subscription_id = event["data"]["object"]["items"]["data"][0]["subscription"]
+        Subscription.sync_from_stripe_data(
+          stripe.Subscription.retrieve(subscription_id)
         )
-
-        print(subscription)
-        # customer.subscribe(items=[{"price": price_1}, {"price": price_2}])
-
-        # current_user = CustomUser.objects.get(pk=user_id)
-        # current_user.subscription_level = "PRO"
-        # current_user.save()
 
     return HttpResponse(status=200)
 

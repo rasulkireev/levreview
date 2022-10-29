@@ -15,8 +15,12 @@ def add_users_context(context, user):
   except Customer.DoesNotExist as e:
     print(f"Customer Error: {e}")
 
+  try:
+    context["email_verified"] = EmailAddress.objects.get_for_user(user, user.email).verified
+  except EmailAddress.DoesNotExist as e:
+    print(f"Email Error: {e}")
+
   locations = Location.objects.filter(owner=user)
   context["locations"] = locations
-  context["email_verified"] = EmailAddress.objects.get_for_user(user, user.email).verified
 
   return context

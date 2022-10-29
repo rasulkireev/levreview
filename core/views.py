@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Location, Review
 from .forms import CreateLocationForm, CreateReviewForm
+from users.utils import add_users_context
 
 class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = "account_login"
@@ -17,7 +18,7 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["num_of_locations"] = len(Location.objects.filter(owner=self.request.user))
+        add_users_context(context, self.request.user)
 
         return context
 
@@ -37,10 +38,9 @@ class LocationDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["num_of_locations"] = len(Location.objects.filter(owner=self.request.user))
-
         current_location = Location.objects.get(google_place_id = self.kwargs["google_place_id"])
         context["reviews"] = Review.objects.filter(location=current_location)
+        add_users_context(context, self.request.user)
 
         return context
 
@@ -72,6 +72,6 @@ class ReviewDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["num_of_locations"] = len(Location.objects.filter(owner=self.request.user))
+        add_users_context(context, self.request.user)
 
         return context
