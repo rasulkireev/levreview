@@ -1,0 +1,53 @@
+{% load webpack_loader static %}
+{% load static %}
+{% load widget_tweaks %}
+
+<div class="pt-2 pl-6 mt-6 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">
+          Subscription:
+          <span class="text-indigo-700">
+            {% if not customer %}
+              Unverified
+            {% elif subscription.status == "active" %}
+              Pro
+            {% else %}
+              Free
+            {% endif %}
+          </span>
+        </h3>
+        <p class="mt-1 text-sm text-gray-600">
+          Here you can upgrade, cancel or change your payments information.
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center mt-5 md:col-span-2 md:mt-0">
+      {% if subscription.status %}
+        <form method="POST" action="/users/create-customer-portal-session/">
+          {% csrf_token %}
+          <button
+            class="inline-flex items-center px-3 py-2 text-gray-700 border-2 border-gray-300 rounded-md hover:bg-gray-200"
+            type="submit"
+          >
+            Manage
+          </button>
+        </form>
+      {% else %}
+        <a
+          class="inline-flex items-center px-3 py-2 text-white bg-indigo-600 border-2 border-transparent rounded-md hover:bg-indigo-700"
+          href="{% url 'checkout' %}"
+        >
+          Upgrade
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>

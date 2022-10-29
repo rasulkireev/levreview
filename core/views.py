@@ -7,6 +7,7 @@ from .models import Location, Review
 from .forms import CreateLocationForm, CreateReviewForm
 
 class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    login_url = "account_login"
     model = Location
     form_class = CreateLocationForm
     template_name = "core/location-create.html"
@@ -27,6 +28,7 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super(LocationCreateView, self).form_valid(form)
 
 class LocationDetailView(LoginRequiredMixin, DetailView):
+    login_url = "account_login"
     model = Location
     template_name = "core/location-detail.html"
     slug_field = 'google_place_id'
@@ -64,6 +66,7 @@ class ReviewCreateView(CreateView):
 
 
 class ReviewDetailView(LoginRequiredMixin, DetailView):
+    login_url = "account_login"
     model = Review
     template_name = "core/review-detail.html"
 
