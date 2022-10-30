@@ -39,7 +39,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 def create_checkout_session(request):
     user = request.user
-    price_id = Price.objects.first().id
+    price_id = Price.objects.get(nickname="monthly").id
     customer = Customer.objects.get(subscriber=user)
 
     checkout_session = stripe.checkout.Session.create(
