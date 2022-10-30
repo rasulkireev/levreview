@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, CreateView, DetailView
+from django.views.generic import CreateView, DetailView
 from django.urls import reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
