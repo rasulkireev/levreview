@@ -121,6 +121,10 @@
             <label for="rating" class="sr-only">Rating</label>
             {% render_field form.rating type="number" data-review-target="rating" id="rating" name="rating" %}
           </div>
+          <div class="hidden">
+            <label for="google_place_id" class="sr-only">Google Place ID</label>
+            <input type="text" name="google_place_id" id="google_place_id" data-review-target="googlePlaceId" value="{{ location.google_place_id }}" />
+          </div>
           <div>
             {{ form.feedback.errors | safe }}
             <label for="feedback" class="sr-only">Feedback</label>

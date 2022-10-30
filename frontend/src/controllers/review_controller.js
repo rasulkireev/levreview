@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import {enter} from 'el-transition';
 
 export default class extends Controller {
-  static targets = [ "form", "rating" ];
+  static targets = [ "form", "rating", "googlePlaceId" ];
 
   fillStars(event) {
     const clickedStarNumber = parseInt(event.currentTarget.id);
@@ -25,6 +25,9 @@ export default class extends Controller {
 
     if (clickedStarNumber < minRating) {
       enter(this.formTarget);
+    } else if (clickedStarNumber >= minRating) {
+      console.log(this.googlePlaceIdTarget.value);
+      window.location.replace(`http://search.google.com/local/writereview?placeid=${this.googlePlaceIdTarget.value}`);
     }
   }
 }
