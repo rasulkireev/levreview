@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     './templates/**/*.html',
-    './foxreview/utils.py',
+    './levreview/utils.py',
     './frontend/src/controllers/*.js',
   ],
   theme: {

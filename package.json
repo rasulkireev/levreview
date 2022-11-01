@@ -1,5 +1,5 @@
 {
-  "name": "foxreview",
+  "name": "levreview",
   "version": "1.0.0",
   "description": "Get better reviews on Google",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rasulkireev/foxreview"
+    "url": "https://github.com/rasulkireev/levreview"
   },
   "keywords": [
     "webpack",
@@ -19,7 +19,7 @@
   "author": "Rasul Kireev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rasulkireev/foxreview/issues"
+    "url": "https://github.com/rasulkireev/levreview/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",

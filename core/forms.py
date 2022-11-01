@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 
 from .models import Location, Review
-from foxreview.utils import DivErrorList
+from levreview.utils import DivErrorList
 
 class CreateLocationForm(ModelForm):
     def __init__(self, *args, **kwargs):
