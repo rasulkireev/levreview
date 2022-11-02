@@ -20,7 +20,7 @@ jobs:
       with:
         host: ${{ secrets.DO_HOST }}
         username: ${{ secrets.DO_USERNAME }}
-        password: ${{ secrets.DO_SSHKEY }}
+        key: ${{ secrets.DO_SSHKEY }}
         script: |
           ls
           echo "Hello World"
