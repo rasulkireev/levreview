@@ -55,10 +55,9 @@ jobs:
           script: |
             export NODE_ENV=production
             cd $PROJECT_DIR
-            ls
             source ./venv/bin/activate
             pip install -r requirements.txt
-            $SUDO_PREFIX npm install
+            npm install
             npm run build
 
       - name: Build Project
