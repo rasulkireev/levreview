@@ -13,8 +13,8 @@ env:
   SUDO_PREFIX: "echo ${{ secrets.DO_PASSWORD }} | sudo -S"
 
 jobs:
-  prepare:
-    name: Prepare Deployment
+  deploy:
+    name: Deplot
     runs-on: ubuntu-latest
     steps:
       - name: Pull the Latest Commit
@@ -43,3 +43,46 @@ jobs:
             $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
             $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/
             $SUDO_PREFIX ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled
+
+      - name: Install Dependencies
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSHKEY }}
+          script_stop: true
+          envs: PROJECT_DIR
+          script: |
+            export NODE_ENV=production
+            cd $PROJECT_DIR
+            source ./venv/bin/activate
+            pip install -r requirements.txt
+            npm install
+            npm run build
+
+      - name: Build Project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSHKEY }}
+          script_stop: true
+          envs: PROJECT_DIR
+          script: |
+            cd $PROJECT_DIR
+            source ./venv/bin/activate
+            python manage.py migrate
+            python manage.py collectstatic --noinput
+            python manage.py djstripe_sync_models
+
+      - name: Restart Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSHKEY }}
+          script_stop: true
+          envs: DO_PASSWORD,SUDO_PREFIX
+          script: |
+            $SUDO_PREFIX systemctl restart levreview.gunicorn
+            $SUDO_PREFIX systemctl restart nginx
