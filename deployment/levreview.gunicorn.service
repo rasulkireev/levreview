@@ -1,0 +1,26 @@
+# Save in /etc/systemd/system/
+# After Saved, Run:
+# sudo systemctl start levreview.gunicorn.socket
+# sudo systemctl enable levreview.gunicorn.socket
+# sudo systemctl status levreview.gunicorn.socket
+# file /run/levreview.gunicorn.sock
+# sudo journalctl -u levreview.gunicorn.socket
+# sudo systemctl status gunicorn
+
+[Unit]
+Description=gunicorn daemon
+Requires=levreview.gunicorn.socket
+After=network.target
+
+[Service]
+User=rasulkireev
+Group=www-data
+WorkingDirectory=/home/rasulkireev/levreview
+ExecStart=/home/rasulkireev/levreview/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/levreview.gunicorn.sock \
+          levreview.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
