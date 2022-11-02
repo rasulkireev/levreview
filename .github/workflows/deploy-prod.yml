@@ -57,7 +57,7 @@ jobs:
             cd $PROJECT_DIR
             source ./venv/bin/activate
             pip install -r requirements.txt
-            npm install
+            npm install && npm install --only=dev
 
       - name: Build Project
         uses: appleboy/ssh-action@master
