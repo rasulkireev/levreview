@@ -34,7 +34,6 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSHKEY }}
           password: ${{ secrets.DO_PASSWORD }}
           script_stop: true
           envs: PROJECT_DIR
