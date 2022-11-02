@@ -58,7 +58,6 @@ jobs:
             source ./venv/bin/activate
             pip install -r requirements.txt
             npm install
-            npm run build
 
       - name: Build Project
         uses: appleboy/ssh-action@master
@@ -70,6 +69,7 @@ jobs:
           envs: PROJECT_DIR
           script: |
             cd $PROJECT_DIR
+            npm run build
             source ./venv/bin/activate
             python manage.py migrate
             python manage.py collectstatic --noinput
