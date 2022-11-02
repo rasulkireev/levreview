@@ -1,9 +1,11 @@
 from email.policy import default
-from django.db import models
-from django.urls import reverse
+
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
+from django.urls import reverse
 from model_utils.models import TimeStampedModel
+
 
 class Location(TimeStampedModel):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="location")
@@ -19,6 +21,7 @@ class Location(TimeStampedModel):
 
     def get_absolute_url(self):
         return reverse("detail-location", kwargs={"google_place_id": self.google_place_id})
+
 
 class Review(TimeStampedModel):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name="review")

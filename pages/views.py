@@ -1,10 +1,13 @@
-from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 
 from core.models import Location, Review
 from users.utils import add_users_context
+
+
 class HomeView(TemplateView):
     template_name = "pages/home.html"
+
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     login_url = "account_login"

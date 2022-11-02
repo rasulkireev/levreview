@@ -41,16 +41,5 @@ jobs:
           script: |
             $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
             $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
-
-            $SUDO_PREFIX systemctl start levreview.gunicorn.socket
-            $SUDO_PREFIX systemctl enable levreview.gunicorn.socket
-            $SUDO_PREFIX systemctl status levreview.gunicorn.socket
-
-            file /run/levreview.gunicorn.sock
-            $SUDO_PREFIX journalctl -u levreview.gunicorn.socket
-            $SUDO_PREFIX systemctl status levreview.gunicorn
-
             $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/
             $SUDO_PREFIX ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled
-            $SUDO_PREFIX nginx -t
-            $SUDO_PREFIX systemctl restart nginx

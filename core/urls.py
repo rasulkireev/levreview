@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import LocationDetailView, LocationCreateView, ReviewCreateView, ReviewDetailView
+from .views import LocationCreateView, LocationDetailView, ReviewCreateView, ReviewDetailView
 
 urlpatterns = [
     path("create/", LocationCreateView.as_view(), name="create-location"),

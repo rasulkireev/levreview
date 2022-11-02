@@ -1,11 +1,13 @@
-from django.views.generic import CreateView, DetailView
-from django.urls import reverse
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse
+from django.views.generic import CreateView, DetailView
 
-from .models import Location, Review
-from .forms import CreateLocationForm, CreateReviewForm
 from users.utils import add_users_context
+
+from .forms import CreateLocationForm, CreateReviewForm
+from .models import Location, Review
+
 
 class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = "account_login"
@@ -14,7 +16,7 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = "core/location-create.html"
 
     def get_success_url(self):
-      return reverse("dashboard")
+        return reverse("dashboard")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,21 +30,23 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
         return super(LocationCreateView, self).form_valid(form)
 
+
 class LocationDetailView(LoginRequiredMixin, DetailView):
     login_url = "account_login"
     model = Location
     template_name = "core/location-detail.html"
-    slug_field = 'google_place_id'
-    slug_url_kwarg = 'google_place_id'
+    slug_field = "google_place_id"
+    slug_url_kwarg = "google_place_id"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        current_location = Location.objects.get(google_place_id = self.kwargs["google_place_id"])
+        current_location = Location.objects.get(google_place_id=self.kwargs["google_place_id"])
         context["reviews"] = Review.objects.filter(location=current_location)
         add_users_context(context, self.request.user)
 
         return context
+
 
 class ReviewCreateView(CreateView):
     model = Review
