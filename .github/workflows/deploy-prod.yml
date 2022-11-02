@@ -20,7 +20,7 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          password: ${{ secrets.DO_PASSWORD }}
+          key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
           envs: PROJECT_DIR
           script: |
@@ -33,7 +33,7 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          password: ${{ secrets.DO_PASSWORD }}
+          key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
           envs: PROJECT_DIR
           script: |
