@@ -2,26 +2,53 @@
 
 name: Prod Deploy
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches:
       main
 
+env:
+  PROJECT_DIR: /home/rasulkireev/levreview
+
 jobs:
-  deploy:
-    name: Deploy to Digital Ocean
+  prepare:
+    name: Prepare Deployment
     runs-on: ubuntu-latest
     steps:
+      - name: Pull the Latest Commit
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSHKEY }}
+          script_stop: true
+          envs: PROJECT_DIR
+          script: |
+            cd $PROJECT_DIR
+            sudo git fetch --all
+            sudo git reset --hard origin/main
 
-    - name: Pull the latest commit
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USERNAME }}
-        key: ${{ secrets.DO_SSHKEY }}
-        script_stop: true
-        script: |
-          ls
-          echo "Hello World"
+      - name: Install Conf Files
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSHKEY }}
+          script_stop: true
+          envs: PROJECT_DIR
+          script: |
+            cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
+            cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
+
+            sudo systemctl start levreview.gunicorn.socket
+            sudo systemctl enable levreview.gunicorn.socket
+            sudo systemctl status levreview.gunicorn.socket
+
+            file /run/levreview.gunicorn.sock
+            sudo journalctl -u levreview.gunicorn.socket
+            sudo systemctl status gunicorn
+
+            cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/
+            sudo ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled
+            sudo nginx -t
+            sudo systemctl restart nginx
