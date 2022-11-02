@@ -10,6 +10,7 @@ on:
 env:
   PROJECT_DIR: /home/rasulkireev/levreview
   DO_PASSWORD: ${{ secrets.DO_PASSWORD }}
+  SUDO_PREFIX: "echo ${{ secrets.DO_PASSWORD }} | sudo -S"
 
 jobs:
   prepare:
@@ -36,20 +37,20 @@ jobs:
           username: ${{ secrets.DO_USERNAME }}
           key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
-          envs: PROJECT_DIR,DO_PASSWORD
+          envs: PROJECT_DIR,DO_PASSWORD,SUDO_PREFIX
           script: |
-            echo "$DO_PASSWORD" | sudo -S cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
-            echo "$DO_PASSWORD" | sudo -S cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
+            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
+            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
 
-            echo "$DO_PASSWORD" | sudo -S systemctl start levreview.gunicorn.socket
-            echo "$DO_PASSWORD" | sudo -S systemctl enable levreview.gunicorn.socket
-            echo "$DO_PASSWORD" | sudo -S systemctl status levreview.gunicorn.socket
+            $SUDO_PREFIX systemctl start levreview.gunicorn.socket
+            $SUDO_PREFIX systemctl enable levreview.gunicorn.socket
+            $SUDO_PREFIX systemctl status levreview.gunicorn.socket
 
             file /run/levreview.gunicorn.sock
-            echo "$DO_PASSWORD" | sudo -S journalctl -u levreview.gunicorn.socket
-            echo "$DO_PASSWORD" | sudo -S systemctl status gunicorn
+            $SUDO_PREFIX journalctl -u levreview.gunicorn.socket
+            $SUDO_PREFIX systemctl status levreview.gunicorn
 
-            echo "$DO_PASSWORD" | sudo -S cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/
-            echo "$DO_PASSWORD" | sudo -S ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled
-            echo "$DO_PASSWORD" | sudo -S nginx -t
-            echo "$DO_PASSWORD" | sudo -S systemctl restart nginx
+            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/
+            $SUDO_PREFIX ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled
+            $SUDO_PREFIX nginx -t
+            $SUDO_PREFIX systemctl restart nginx
