@@ -41,7 +41,7 @@ jobs:
             cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
             cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
 
-            echo "DO_PASSWORD" | sudo systemctl start levreview.gunicorn.socket
+            echo "$DO_PASSWORD" | sudo systemctl start levreview.gunicorn.socket
             sudo systemctl enable levreview.gunicorn.socket
             sudo systemctl status levreview.gunicorn.socket
 
