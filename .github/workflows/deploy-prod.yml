@@ -9,6 +9,7 @@ on:
 
 env:
   PROJECT_DIR: /home/rasulkireev/levreview
+  DO_PASSWORD: ${{ secrets.DO_PASSWORD }}
 
 jobs:
   prepare:
@@ -25,8 +26,8 @@ jobs:
           envs: PROJECT_DIR
           script: |
             cd $PROJECT_DIR
-            sudo git fetch --all
-            sudo git reset --hard origin/main
+            git fetch --all
+            git reset --hard origin/main
 
       - name: Install Conf Files
         uses: appleboy/ssh-action@master
@@ -35,12 +36,12 @@ jobs:
           username: ${{ secrets.DO_USERNAME }}
           key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
-          envs: PROJECT_DIR
+          envs: PROJECT_DIR,DO_PASSWORD
           script: |
             cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/
             cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/
 
-            sudo systemctl start levreview.gunicorn.socket
+            echo "DO_PASSWORD" | sudo systemctl start levreview.gunicorn.socket
             sudo systemctl enable levreview.gunicorn.socket
             sudo systemctl status levreview.gunicorn.socket
 
