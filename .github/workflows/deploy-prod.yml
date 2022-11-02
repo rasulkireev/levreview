@@ -51,13 +51,13 @@ jobs:
           username: ${{ secrets.DO_USERNAME }}
           key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
-          envs: PROJECT_DIR
+          envs: PROJECT_DIR,SUDO_PREFIX
           script: |
             export NODE_ENV=production
             cd $PROJECT_DIR
             source ./venv/bin/activate
             pip install -r requirements.txt
-            npm install
+            $SUDO_PREFIX npm install
             npm run build
 
       - name: Build Project
