@@ -1,106 +1,104 @@
-<div class="bg-white">
-  <div class="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
-    <div class="pb-16 xl:flex xl:items-center xl:justify-between">
-      <div>
-        <div class="max-w-xl mb-16">
-          <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Pricing</h2>
-        </div>
-        <h3 class="text-2xl font-bold tracking-tight sm:text-4xl">
-          <span class="text-gray-900">Everything you need for</span>
-          <span class="text-orange-600">$299 a month</span>
-        </h3>
-        <p class="mt-5 text-xl text-gray-500">Includes every feature we offer with unlimited locations.</p>
+<div class="bg-gray-900">
+  <div class="pt-12 sm:pt-16 lg:pt-24">
+    <div class="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto space-y-2 lg:max-w-none">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">Pricing</h2>
+        <!-- <p class="text-xl text-gray-300">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.</p> -->
       </div>
     </div>
-    <div class="pt-16 border-t border-gray-200 xl:grid xl:grid-cols-3 xl:gap-x-8">
-      <div>
-        <h2 class="text-lg font-semibold text-orange-600">Everything you need</h2>
-        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900">All-in-one platform</p>
-        <p class="mt-4 text-lg text-gray-500">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec. Urna, sed a lectus elementum blandit et.</p>
-      </div>
-      <div class="mt-4 sm:mt-8 md:mt-10 md:grid md:grid-cols-2 md:gap-x-8 xl:col-span-2 xl:mt-0">
-        <ul role="list" class="divide-y divide-gray-200">
-          <li class="flex py-4 md:py-0 md:pb-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Vitae in pulvinar odio id utobortis in inter.</span>
-          </li>
+  </div>
+  <div class="pb-12 mt-8 bg-gray-50 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24">
+    <div class="relative">
+      <div class="absolute inset-0 bg-gray-900 h-3/4"></div>
+      <div class="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="max-w-md mx-auto space-y-4 lg:grid lg:max-w-5xl lg:grid-cols-2 lg:gap-5 lg:space-y-0">
+          <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+              <div>
+                <h3 class="inline-flex px-4 py-1 text-base font-semibold text-orange-600 bg-orange-100 rounded-full" id="tier-standard">Standard</h3>
+              </div>
+              <div class="flex items-baseline mt-4 text-6xl font-bold tracking-tight">
+                Free
+              </div>
+              <p class="mt-5 text-lg text-gray-500">If you just want to collect more reviews.</p>
+            </div>
+            <div class="flex flex-col justify-between flex-1 px-6 pt-6 pb-8 space-y-6 bg-gray-50 sm:p-10 sm:pt-6">
+              <ul role="list" class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">Unlimited Location</p>
+                </li>
 
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Sed sed id viverra viverra augue eget massa.</span>
-          </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">Unlimited Reviews</p>
+                </li>
+              </ul>
+              <div class="rounded-md shadow">
+                <a href="{% url 'account_signup' %}" class="flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-900" aria-describedby="tier-standard">Get started</a>
+              </div>
+            </div>
+          </div>
 
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Urna, gravida amet, a, integer venenatis.</span>
-          </li>
+          <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+              <div>
+                <h3 class="inline-flex px-4 py-1 text-base font-semibold text-orange-600 bg-orange-100 rounded-full" id="tier-standard">Pro</h3>
+              </div>
+              <div class="flex items-baseline mt-4 text-6xl font-bold tracking-tight">
+                $299
+                <span class="ml-1 text-2xl font-medium tracking-normal text-gray-500">/mo</span>
+              </div>
+              <p class="mt-5 text-lg text-gray-500">If you are serious about your Google Rating.</p>
+            </div>
+            <div class="flex flex-col justify-between flex-1 px-6 pt-6 pb-8 space-y-6 bg-gray-50 sm:p-10 sm:pt-6">
+              <ul role="list" class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">Everything in Free +</p>
+                </li>
 
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Lobortis sed pharetra amet vitae eleifend.</span>
-          </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">Details about Reviews (user email, feedback, etc.)</p>
+                </li>
 
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Ullamcorper blandit a consequat donec elit aoreet.</span>
-          </li>
-        </ul>
-        <ul role="list" class="border-t border-gray-200 divide-y divide-gray-200 md:border-t-0">
-          <li class="flex py-4 md:border-t-0 md:py-0 md:pb-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Dolor quo assumenda.</span>
-          </li>
-
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Esse rerum distinctio maiores maiores.</span>
-          </li>
-
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Eos enim officiis ratione.</span>
-          </li>
-
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Tempore molestiae aliquid excepturi.</span>
-          </li>
-
-          <li class="flex py-4">
-            <!-- Heroicon name: outline/check -->
-            <svg class="flex-shrink-0 w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="ml-3 text-base text-gray-500">Perspiciatis eveniet inventore eum et aliquam.</span>
-          </li>
-        </ul>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p class="ml-3 text-base text-gray-700">White label review form</p>
+                </li>
+              </ul>
+              <div class="rounded-md shadow">
+                <a href="{% url 'account_signup' %}" class="flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-900" aria-describedby="tier-standard">Get started</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

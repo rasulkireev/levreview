@@ -53,7 +53,7 @@
         aria-labelledby="menu-button"
         tabindex="-1"
       >
-        <div data-controller="clipboard" role="none" class="inline-block p-1 m-4 border border-gray-300 rounded-full focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        <div data-controller="clipboard" role="none" class="inline-block p-1 m-4 border border-gray-300 rounded-full focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
           <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
           <input data-clipboard-target="input" readonly class="hidden p-0 pl-1 text-sm text-gray-600 border-0 rounded-full md:inline focus:ring-0 outline-0 focus:outline-0" type="text" value="{{ request.get_host }}{% url 'create-review' object.google_place_id %}" />
           <button data-clipboard-target="button" data-action="clipboard#copy" class="px-2 py-1 text-sm text-white bg-green-600 rounded-full">Copy to clipboard</button>
@@ -102,7 +102,7 @@
           </div>
           <p class="mt-4">
             This will yield a button/link that will look like this
-            <button class="inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white hover:bg-indigo-700">
+            <button class="inline-flex items-center rounded border border-transparent bg-orange-600 px-2.5 py-1.5 text-xs font-medium text-white hover:bg-orange-700">
               Review Us
             </button>
           </p>

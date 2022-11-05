@@ -109,12 +109,12 @@
           <div>
             {{ form.name.errors | safe }}
             <label for="name" class="sr-only">Username (Optional)</label>
-            {% render_field form.name placeholder="Name (Optional)" id="name" name="name" type="text" autocomplete="name" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+            {% render_field form.name placeholder="Name (Optional)" id="name" name="name" type="text" autocomplete="name" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
           </div>
           <div>
             {{ form.email.errors | safe }}
             <label for="email" class="sr-only">Email (Optional)</label>
-            {% render_field form.email id="email" name="email" placeholder="Email (Optional)" type="email" autocomplete="email" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+            {% render_field form.email id="email" name="email" placeholder="Email (Optional)" type="email" autocomplete="email" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
           </div>
           <div class="hidden">
             {{ form.rating.errors | safe }}
@@ -128,10 +128,10 @@
           <div>
             {{ form.feedback.errors | safe }}
             <label for="feedback" class="sr-only">Feedback</label>
-            {% render_field form.feedback id="feedback" name="feedback" placeholder="Feedback" type="text" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+            {% render_field form.feedback id="feedback" name="feedback" placeholder="Feedback" type="text" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
           </div>
         </div>
-        <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
             Submit
         </button>
       </div>

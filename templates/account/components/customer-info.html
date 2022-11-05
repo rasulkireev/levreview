@@ -8,7 +8,7 @@
       <div class="px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-900">
           Subscription:
-          <span class="text-indigo-700">
+          <span class="text-orange-700">
             {% if not customer %}
               Unverified
             {% elif subscription.status == "active" %}
@@ -28,7 +28,7 @@
         <form method="post" action="/users/create-customer-portal-session/">
           {% csrf_token %}
           <button
-            class="inline-flex items-center px-3 py-2 text-white bg-indigo-600 border-2 border-transparent rounded-md hover:bg-indigo-700"
+            class="inline-flex items-center px-3 py-2 text-white bg-orange-600 border-2 border-transparent rounded-md hover:bg-orange-700"
             type="submit"
           >
             Manage
@@ -36,12 +36,12 @@
         </form>
       {% else %}
         {% if not email_verified %}
-            <button class="inline-flex items-center px-3 py-2 text-white bg-indigo-300 border-2 border-transparent rounded-md">
+            <button class="inline-flex items-center px-3 py-2 text-white bg-orange-300 border-2 border-transparent rounded-md">
               Upgrade
             </button>
         {% else %}
           <a
-            class="inline-flex items-center px-3 py-2 text-white bg-indigo-600 border-2 border-transparent rounded-md hover:bg-indigo-700"
+            class="inline-flex items-center px-3 py-2 text-white bg-orange-600 border-2 border-transparent rounded-md hover:bg-orange-700"
             href="{% url 'checkout' %}"
           >
             Upgrade

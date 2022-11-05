@@ -10,7 +10,7 @@
 
               {% if locations|length > 0 %}
                 {% if not email_verified %}
-                    <button disable class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-300 border border-transparent rounded-md shadow-sm">
+                    <button disable class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>
@@ -19,7 +19,7 @@
                 {% else %}
                   <a
                     href="{% url 'create-location' %}"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -43,7 +43,7 @@
           <div class="mt-6">
             {% if not email_verified %}
               <button
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-300 border border-transparent rounded-md shadow-sm"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm"
                 data-action="mouseenter->popover#show mouseleave->popover#hide"
                 disabled
               >
@@ -55,7 +55,7 @@
           {% else %}
             <a
               href="{% url 'create-location' %}"
-              class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700"
               >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
