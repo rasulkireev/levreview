@@ -30,20 +30,6 @@ jobs:
             git fetch --all
             git reset --hard origin/main
 
-      - name: Install Conf Files
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSHKEY }}
-          script_stop: true
-          envs: PROJECT_DIR,DO_PASSWORD,SUDO_PREFIX
-          script: |
-            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.socket /etc/systemd/system/levreview.gunicorn.socket
-            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.gunicorn.service /etc/systemd/system/levreview.gunicorn.service
-            $SUDO_PREFIX cp $PROJECT_DIR/deployment/levreview.nginx.conf /etc/nginx/sites-available/levreview.nginx.conf
-            $SUDO_PREFIX ln -s /etc/nginx/sites-available/levreview.nginx.conf /etc/nginx/sites-enabled/levreview.nginx.conf
-
       - name: Install Dependencies
         uses: appleboy/ssh-action@master
         with:

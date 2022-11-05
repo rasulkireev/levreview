@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "webpack_boilerplate",
     "widget_tweaks",
     "django_extensions",
+    "anymail",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -162,7 +163,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 SITE_ID = 1
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ANYMAIL = {
+    "MAILGUN_API_KEY": env("MAILGUN_API_KEY"),
+    "MAILGUN_SENDER_DOMAIN": "mg.builtwithdjango.com",
+}
+
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+
+DEFAULT_FROM_EMAIL = "rasul@levreview.com"
+SERVER_EMAIL = "errors@levreview.com"
 
 LOGIN_REDIRECT_URL = "dashboard"
 ACCOUNT_LOGOUT_REDIRECT_URL = "home"
