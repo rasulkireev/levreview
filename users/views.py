@@ -10,9 +10,10 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from django.views.generic import TemplateView, UpdateView
+from django.views.generic import FormView, UpdateView
 from djstripe.models import Customer, Price, Subscription
 
+from .forms import UpdateMinRatingForm
 from .models import CustomUser
 from .utils import add_users_context
 
@@ -24,7 +25,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = CustomUser
     fields = ["first_name", "last_name", "email"]
     success_message = "User Profile Updated"
-    success_url = reverse_lazy("dashboard")
+    success_url = reverse_lazy("settings")
     template_name = "account/settings.html"
 
     def get_object(self):
@@ -32,10 +33,27 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        user = self.request.user
 
-        add_users_context(context, self.request.user)
+        context["min_rating_form"] = UpdateMinRatingForm
+        context["min_rating"] = user.location.first().min_rating
+
+        add_users_context(context, user)
 
         return context
+
+
+class UpdateMinRatingView(LoginRequiredMixin, FormView):
+    login_url = "account_login"
+    form_class = UpdateMinRatingForm
+    success_url = reverse_lazy("settings")
+    template_name = "account/min-rating-form.html"
+
+    def form_valid(self, form):
+        user = self.request.user
+        user.location.all().update(min_rating=form.cleaned_data["min_rating"])
+
+        return super(UpdateMinRatingView, self).form_valid(form)
 
 
 def create_checkout_session(request):

@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import Form, ModelForm
 
 from levreview.utils import DivErrorList
 
