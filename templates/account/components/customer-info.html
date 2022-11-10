@@ -36,9 +36,19 @@
         </form>
       {% else %}
         {% if not email_verified %}
-            <button class="inline-flex items-center px-3 py-2 text-white bg-orange-300 border-2 border-transparent rounded-md">
-              Upgrade
-            </button>
+        <div data-controller="popover">
+          <button disable data-action="mouseenter->popover#show mouseleave->popover#hide" class="relative inline-flex items-center px-3 py-2 text-white bg-orange-300 border-2 border-transparent rounded-md">
+            Upgrade
+          </button>
+
+          <template data-popover-target="content">
+            <div data-popover-target="card" class="absolute w-full h-full bg-white border-2 border-solid rounded shadow-lg -left-16 top-12" style="bottom: 2rem; width: max-content;">
+              <div class="flex items-center justify-center w-full h-full px-8 py-4">
+                <p class="text-sm text-gray-500">Please confirm your email first.</p>
+              </div>
+            </div>
+          </template>
+        </div>
         {% else %}
           <a
             class="inline-flex items-center px-3 py-2 text-white bg-orange-600 border-2 border-transparent rounded-md hover:bg-orange-700"
