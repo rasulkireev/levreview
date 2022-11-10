@@ -9,9 +9,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Other meta stuff -->
   <!-- ADD LOGOOOOOOOO -->
-  <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.png' %}" />
-  <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.png' %}" />
-  <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'vendors/favicon/logo.png' %}"/>
+  <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
+  <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
+  <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'vendors/favicon/logo.jpg' %}"/>
 
   {% block meta %}
     <title>Lev Review</title>
@@ -21,13 +21,13 @@
     <meta property="og:title" content="Lev Review" />
     <meta property="og:url" content="https://{{ request.get_host }}/" />
     <meta property="og:description" content="Get better reviews on Google"/>
-    <meta property="og:image" content="https://{{ request.get_host }}{% static 'vendors/images/logo.png' %}" />
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'vendors/favicon/logo.jpg' %}" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@rasulkireev" />
     <meta name="twitter:site" content="@rasulkireev" />
     <meta name="twitter:title" content="Lev Review" />
     <meta name="twitter:description" content="Get better reviews on Google"/>
-    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'vendors/images/logo.png' %}" />
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'vendors/favicon/logo.jpg' %}" />
   {% endblock meta %}
 
   {% stylesheet_pack 'hotwire' %}
