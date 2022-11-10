@@ -39,7 +39,9 @@
   {% block content %}
   {% endblock content %}
 
-  {% include "components/footer.html" %}
+  {% block footer %}
+    {% include "components/footer.html" %}
+  {% endblock footer %}
 
 </body>
 </html>
