@@ -8,7 +8,7 @@
     </div>
     <div>
       <ul role="list" class="divide-y divide-gray-200">
-        {% if reviews %}
+        {% if reviews and subscription.status == "active" %}
           {% for review in reviews %}
             <li class="py-4" data-controller="stars">
               <div class="flex space-x-3">
@@ -22,11 +22,7 @@
                       {% endif %}
                         left a
                         <span class="inline-block" data-stars-target="stars" value="{{ review.rating }}"></span>
-                        {% if subscription.status == "active" %}
-                          <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">review</a>
-                        {% else %}
-                          review
-                        {% endif %}
+                        <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">review</a>
                         for <a class="font-semibold text-gray-800 underline" href="{% url 'detail-location' review.location.google_place_id %}">{{ review.location.name }}</a>,
                         {{ review.created|timesince }} ago.
                     </p>
@@ -40,7 +36,11 @@
           <div class="flex space-x-3">
             <div class="flex-1 space-y-1">
               <div class="flex items-center justify-between space-x-3">
-                <p class="text-sm text-gray-500">No Activity Yet</p>
+                {% if not subscription.status == "active" %}
+                  <p class="text-sm text-gray-500">Activity details are only available to PRO users.</p>
+                {% else %}
+                  <p class="text-sm text-gray-500">No Activity Yet</p>
+                {% endif %}
               </div>
             </div>
           </div>
