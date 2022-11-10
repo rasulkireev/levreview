@@ -1,6 +1,10 @@
 {% extends "dbase.html" %}
 {% load static %}
 
+{% block meta %}
+  <title>Lev Review - Settings</title>
+{% endblock meta %}
+
 {% block content %}
   <div class="bg-white lg:min-w-0 md:pt-10 lg:flex-1">
     {% include "components/confirm-email.html" with email_verified=email_verified %}
@@ -11,6 +15,8 @@
     </div>
     {% include "account/components/settings-form.html" with form=form %}
     {% include "account/components/customer-info.html" with customer=customer %}
-    {% include "account/components/app-settings.html" with min_rating_form=min_rating_form %}
+    {% if num_of_locations > 0 %}
+      {% include "account/components/app-settings.html" with min_rating_form=min_rating_form %}
+    {% endif %}
   </div>
 {% endblock content %}

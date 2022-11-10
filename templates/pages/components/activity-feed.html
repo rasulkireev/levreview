@@ -22,7 +22,11 @@
                       {% endif %}
                         left a
                         <span class="inline-block" data-stars-target="stars" value="{{ review.rating }}"></span>
-                        <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">review</a>
+                        {% if subscription.status == "active" %}
+                          <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">review</a>
+                        {% else %}
+                          review
+                        {% endif %}
                         for <a class="font-semibold text-gray-800 underline" href="{% url 'detail-location' review.location.google_place_id %}">{{ review.location.name }}</a>,
                         {{ review.created|timesince }} ago.
                     </p>

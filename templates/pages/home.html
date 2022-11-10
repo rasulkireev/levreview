@@ -1,18 +1,24 @@
+{% extends "base.html" %}
 {% load webpack_loader static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Django Project</title>
+{% block meta %}
+  <title>Lev Review</title>
+  <meta property="og:title" content="Lev Review" />
+  <meta name="twitter:title" content="Lev Review" />
+  <meta name="description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
+  <meta property="og:description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
+  <meta name="twitter:description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
+  <link rel="canonical" href="https://{{ request.get_host }}/" />
+  <meta property="og:url" content="https://{{ request.get_host }}/" />
+  <meta property="og:image" content="https://{{ request.get_host }}{% static 'vendors/images/logo.png' %}" />
+  <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'vendors/images/logo.png' %}" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@rasulkireev" />
+  <meta name="twitter:site" content="@rasulkireev" />
+{% endblock meta %}
 
-  {% stylesheet_pack 'hotwire' %}
-  {% javascript_pack 'hotwire' attrs='defer' %}
-
-</head>
-<body>
+{% block content %}
   {% include "pages/components/hero.html" %}
   {% include "pages/components/how-it-works.html" %}
 
@@ -23,5 +29,4 @@
   </div>
 
   {% include "pages/components/pricing.html" %}
-</body>
-</html>
+{% endblock content %}

@@ -13,6 +13,8 @@ from django.views.decorators.http import require_POST
 from django.views.generic import FormView, UpdateView
 from djstripe.models import Customer, Price, Subscription
 
+from core.models import Location
+
 from .forms import UpdateMinRatingForm
 from .models import CustomUser
 from .utils import add_users_context
@@ -34,9 +36,12 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+        num_of_locations = len(user.location.all())
 
+        context["num_of_locations"] = num_of_locations
         context["min_rating_form"] = UpdateMinRatingForm
-        context["min_rating"] = user.location.first().min_rating
+        if num_of_locations > 0:
+            context["min_rating"] = user.location.first().min_rating
 
         add_users_context(context, user)
 
