@@ -10,12 +10,22 @@
 
               {% if locations|length > 0 %}
                 {% if not email_verified %}
-                    <button disable class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm">
+                  <div data-controller="popover">
+                    <button disable data-action="mouseenter->popover#show mouseleave->popover#hide" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>
-                      New Location
+                      <span>New Location</span>
                     </button>
+
+                    <template data-popover-target="content">
+                      <div data-popover-target="card" class="absolute w-full h-full bg-white border-2 border-solid rounded shadow-lg -left-16 top-12" style="bottom: 2rem; width: max-content;">
+                        <div class="flex items-center justify-center w-full h-full px-8 py-4">
+                          <p class="text-sm text-gray-500">Please confirm your email first.</p>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
                 {% else %}
                   <a
                     href="{% url 'create-location' %}"
@@ -42,16 +52,22 @@
           <p class="mt-1 text-sm text-gray-500">Get started by creating a new location.</p>
           <div class="mt-6">
             {% if not email_verified %}
-              <button
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm"
-                data-action="mouseenter->popover#show mouseleave->popover#hide"
-                disabled
-              >
+            <div data-controller="popover">
+              <button disable data-action="mouseenter->popover#show mouseleave->popover#hide" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-300 border border-transparent rounded-md shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
-                New Location
+                <span>New Location</span>
               </button>
+
+              <template data-popover-target="content">
+                <div data-popover-target="card" class="absolute w-full h-full bg-white border-2 border-solid rounded shadow-lg -left-16 top-12" style="bottom: 2rem; width: max-content;">
+                  <div class="flex items-center justify-center w-full h-full px-8 py-4">
+                    <p class="text-sm text-gray-500">Please confirm your email first.</p>
+                  </div>
+                </div>
+              </template>
+            </div>
           {% else %}
             <a
               href="{% url 'create-location' %}"
