@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 
 import environ
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 env = environ.Env(
     # set casting, default value
@@ -199,3 +201,7 @@ DJSTRIPE_WEBHOOK_SECRET = env("DJSTRIPE_WEBHOOK_SECRET")
 DJSTRIPE_WEBHOOK_VALIDATION = "retrieve_event"
 DJSTRIPE_USE_NATIVE_JSONFIELD = True
 DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
+
+# Sentry Error Tracking
+if not DEBUG:
+    sentry_sdk.init(dsn=env("dsn"), integrations=[DjangoIntegration()], send_default_pii=True)
