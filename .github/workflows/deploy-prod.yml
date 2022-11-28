@@ -10,7 +10,6 @@ on:
 env:
   PROJECT_DIR: /home/rasulkireev/levreview
   DO_PASSWORD: ${{ secrets.DO_PASSWORD }}
-  SUDO_PREFIX: "echo ${{ secrets.DO_PASSWORD }} | sudo -S"
 
 jobs:
   deploy:
@@ -69,5 +68,5 @@ jobs:
           script_stop: true
           envs: DO_PASSWORD,SUDO_PREFIX
           script: |
-            $SUDO_PREFIX systemctl restart levreview.gunicorn
-            $SUDO_PREFIX systemctl restart nginx
+            sudo systemctl restart levreview.gunicorn
+            sudo systemctl restart nginx
