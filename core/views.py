@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
@@ -7,6 +9,8 @@ from users.utils import add_users_context
 
 from .forms import CreateLocationForm, CreateReviewForm
 from .models import Location, Review
+
+logger = logging.getLogger(__file__)
 
 
 class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -25,7 +29,11 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        current_user = self.request.user
+
+        form.instance.owner = current_user
+        form.instance.min_rating = current_user.min_rating
+
         self.object = form.save()
 
         return super(LocationCreateView, self).form_valid(form)

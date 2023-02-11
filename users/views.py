@@ -40,23 +40,24 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        num_of_locations = len(user.location.all())
 
-        context["num_of_locations"] = num_of_locations
         context["min_rating_form"] = UpdateMinRatingForm
-        if num_of_locations > 0:
-            context["min_rating"] = user.location.first().min_rating
+        context["min_rating"] = user.min_rating
 
         add_users_context(context, user)
 
         return context
 
 
-class UpdateMinRatingView(LoginRequiredMixin, FormView):
+class UpdateMinRatingView(LoginRequiredMixin, UpdateView):
     login_url = "account_login"
+    model = CustomUser
     form_class = UpdateMinRatingForm
     success_url = reverse_lazy("settings")
     template_name = "account/min-rating-form.html"
+
+    def get_object(self):
+        return self.request.user
 
     def form_valid(self, form):
         user = self.request.user

@@ -12,7 +12,7 @@ class CreateLocationForm(ModelForm):
 
     class Meta:
         model = Location
-        fields = ["google_place_id", "name", "address", "phone_number"]
+        fields = ["google_place_id", "name", "address", "phone_number", "min_rating"]
 
 
 class CreateReviewForm(ModelForm):
