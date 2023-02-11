@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
@@ -7,6 +9,8 @@ from users.utils import add_users_context
 
 from .forms import CreateLocationForm, CreateReviewForm
 from .models import Location, Review
+
+logger = logging.getLogger(__file__)
 
 
 class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

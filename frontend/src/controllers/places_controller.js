@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "name", "address", "phoneNumber", "placeId" ];
+  static targets = [ "name", "address", "phoneNumber", "placeId", "minRatingTarget", "currentMinRating" ];
 
   connect() {
     if (typeof(window.google) != "undefined") {
@@ -53,7 +53,6 @@ export default class extends Controller {
     this.addressTarget.value = place.formatted_address;
     this.phoneNumberTarget.value = place.formatted_phone_number;
     this.placeIdTarget.value = place.place_id;
-
   }
 
   keydown(event) {

@@ -49,11 +49,15 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         return context
 
 
-class UpdateMinRatingView(LoginRequiredMixin, FormView):
+class UpdateMinRatingView(LoginRequiredMixin, UpdateView):
     login_url = "account_login"
+    model = CustomUser
     form_class = UpdateMinRatingForm
     success_url = reverse_lazy("settings")
     template_name = "account/min-rating-form.html"
+
+    def get_object(self):
+        return self.request.user
 
     def form_valid(self, form):
         user = self.request.user

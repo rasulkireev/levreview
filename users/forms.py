@@ -26,9 +26,7 @@ class CustomLoginForm(LoginForm):
 class UpdateMinRatingForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(UpdateMinRatingForm, self).__init__(*args, **kwargs)
-
         self.error_class = DivErrorList
-        self.fields["min_rating"].initial = 3
 
     min_rating = forms.ChoiceField(
         choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)),
