@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.DO_USERNAME }}
           key: ${{ secrets.DO_SSHKEY }}
           script_stop: true
-          envs: PROJECT_DIR,SUDO_PREFIX
+          envs: PROJECT_DIR
           script: |
             cd $PROJECT_DIR
             source ./venv/bin/activate
@@ -68,5 +68,6 @@ jobs:
           script_stop: true
           envs: DO_PASSWORD,SUDO_PREFIX
           script: |
+            export DJANGO_SETTINGS_MODULE=myproj.settings.prod
             sudo systemctl restart levreview.gunicorn
             sudo systemctl restart nginx

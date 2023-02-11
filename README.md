@@ -4,6 +4,8 @@ Some notes on deployments and upkeep.
 
 sudo systemctl status levreview.gunicorn.service
 sudo journalctl -u levreview.gunicorn.service
+sudo journalctl -u levreview.gunicorn
+
 
 ## Update Conf Files
 
