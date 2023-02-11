@@ -1,3 +1,5 @@
+import logging
+
 import djstripe.settings as djstripe_settings
 import stripe
 from allauth.account.models import EmailAddress
@@ -11,13 +13,15 @@ from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import FormView, UpdateView
-from djstripe.models import Customer, Price, Subscription
+from djstripe.models import Customer, Plan, Price, Subscription
 
 from core.models import Location
 
 from .forms import UpdateMinRatingForm
 from .models import CustomUser
 from .utils import add_users_context
+
+logger = logging.getLogger(__file__)
 
 stripe.api_key = djstripe_settings.djstripe_settings.STRIPE_SECRET_KEY
 
@@ -105,8 +109,9 @@ def successfull_payment_webhook(request):
         "customer.subscription.deleted",
     )
 
-    if event["type"] in event_types:
-        subscription_id = event["data"]["object"]["items"]["data"][0]["subscription"]
+    if event["type"] in "checkout.session.completed":
+        subscription_id = event["data"]["object"]["subscription"]
+        logger.info(f"Subscription ID: {subscription_id}")
         Subscription.sync_from_stripe_data(stripe.Subscription.retrieve(subscription_id))
 
     return HttpResponse(status=200)

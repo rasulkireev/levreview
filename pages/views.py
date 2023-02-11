@@ -1,8 +1,12 @@
+import logging
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
 from core.models import Location, Review
 from users.utils import add_users_context
+
+logger = logging.getLogger(__file__)
 
 
 class HomeView(TemplateView):
@@ -16,6 +20,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+        logger.debug(f"User: {user}")
         locations = Location.objects.filter(owner=user)
 
         context["locations"] = locations

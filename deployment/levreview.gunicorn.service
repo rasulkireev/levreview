@@ -17,7 +17,8 @@ User=rasulkireev
 Group=www-data
 WorkingDirectory=/home/rasulkireev/levreview
 ExecStart=/home/rasulkireev/levreview/venv/bin/gunicorn \
-          --access-logfile - \
+          --access-logfile /var/log/gunicorn/access.log \
+          --error-logfile /var/log/gunicorn/error.log \
           --workers 3 \
           --bind unix:/run/levreview.gunicorn.sock \
           levreview.wsgi:application

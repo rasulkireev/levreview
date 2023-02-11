@@ -23,7 +23,7 @@ env = environ.Env(
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 environ.Env.read_env()
 ENVIRONMENT = env("ENVIRONMENT")
@@ -205,3 +205,25 @@ DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
 # Sentry Error Tracking
 if not DEBUG:
     sentry_sdk.init(dsn=env("dsn"), integrations=[DjangoIntegration()], send_default_pii=True)
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "root": {"level": "INFO", "handlers": ["console"]},
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "app",
+            "level": "INFO",
+        },
+    },
+    "loggers": {
+        "django": {"handlers": ["console"], "level": "INFO", "propagate": True},
+    },
+    "formatters": {
+        "app": {
+            "format": ("%(asctime)s [%(levelname)-8s] " "(%(module)s.%(funcName)s) %(message)s"),
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        },
+    },
+}
