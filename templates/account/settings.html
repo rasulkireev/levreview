@@ -15,8 +15,6 @@
     </div>
     {% include "account/components/settings-form.html" with form=form %}
     {% include "account/components/customer-info.html" with customer=customer %}
-    {% if num_of_locations > 0 %}
-      {% include "account/components/app-settings.html" with min_rating_form=min_rating_form %}
-    {% endif %}
+    {% include "account/components/app-settings.html" with min_rating_form=min_rating_form %}
   </div>
 {% endblock content %}

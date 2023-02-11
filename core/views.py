@@ -25,7 +25,11 @@ class LocationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        current_user = self.request.user
+
+        form.instance.owner = current_user
+        form.instance.min_rating = current_user.min_rating
+
         self.object = form.save()
 
         return super(LocationCreateView, self).form_valid(form)
