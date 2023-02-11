@@ -13,7 +13,7 @@ LOGGING = {
         "file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "/var/log/levereview.log",
+            "filename": "/home/rasulkireev/levreview/app.log",
             "formatter": "app",
         },
     },
