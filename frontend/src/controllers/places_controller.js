@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "name", "address", "phoneNumber", "placeId", "minRatingTarget", "currentMinRating" ];
+  static targets = [ "name", "address", "phoneNumber", "placeId" ];
 
   connect() {
     if (typeof(window.google) != "undefined") {
