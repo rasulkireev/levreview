@@ -28,5 +28,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE $APP_PORT
 
-RUN chmod +x /app/deployment/entrypoint.sh
+RUN chown root:root /app/deployment/entrypoint.sh && \
+  chmod +x /app/deployment/entrypoint.sh
 ENTRYPOINT ["/app/deployment/entrypoint.sh"]
