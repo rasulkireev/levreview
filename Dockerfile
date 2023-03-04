@@ -28,4 +28,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE $APP_PORT
 
-ENTRYPOINT ["/app/deployment/entrypoint.sh"]
+CMD ["/app/deployment/entrypoint.sh"]
