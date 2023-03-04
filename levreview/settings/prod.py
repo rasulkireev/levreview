@@ -3,7 +3,7 @@
 from . import *  # Import base settings from settings/__init__.py
 
 ALLOWED_HOSTS = ["www.levreview.com", "levreview.cr.rasulkireev.com"]
-DEBUG = False
+DEBUG = True
 
 LOGGING = {
     "version": 1,
