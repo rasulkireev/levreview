@@ -1,4 +1,6 @@
-RUN python manage.py collectstatic --noinput
+export DJANGO_SETTINGS_MODULE=levreview.settings.prod
+
+python manage.py collectstatic --noinput
 python manage.py migrate
 # python manage.py djstripe_sync_models
 
