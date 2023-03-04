@@ -2,8 +2,8 @@
 # Production settings for myapp
 from . import *  # Import base settings from settings/__init__.py
 
-ALLOWED_HOSTS = ["www.levreview.com", "levreview.cr.rasulkireev.com"]
-CSRF_TRUSTED_ORIGINS = ["https://www.levreview.com", "https://levreview.cr.rasulkireev.com"]
+ALLOWED_HOSTS = ["levreview.com", "www.levreview.com", "levreview.cr.rasulkireev.com"]
+CSRF_TRUSTED_ORIGINS = ["https://levreview.com", "https://www.levreview.com", "https://levreview.cr.rasulkireev.com"]
 
 DEBUG = True
 
