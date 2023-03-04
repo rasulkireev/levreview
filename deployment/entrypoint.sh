@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export DJANGO_SETTINGS_MODULE=levreview.settings.prod
 
 python manage.py collectstatic --noinput
