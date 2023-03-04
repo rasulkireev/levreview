@@ -2,7 +2,7 @@
 # Production settings for myapp
 from . import *  # Import base settings from settings/__init__.py
 
-ALLOWED_HOSTS = ["www.levreview.com"]
+ALLOWED_HOSTS = ["www.levreview.com", "levreview.cr.rasulkireev.com"]
 DEBUG = False
 
 LOGGING = {
