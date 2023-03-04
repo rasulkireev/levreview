@@ -2,8 +2,10 @@
 # Production settings for myapp
 from . import *  # Import base settings from settings/__init__.py
 
-ALLOWED_HOSTS = ["www.levreview.com"]
-DEBUG = False
+ALLOWED_HOSTS = ["www.levreview.com", "levreview.cr.rasulkireev.com"]
+CSRF_TRUSTED_ORIGINS = ["https://www.levreview.com", "https://levreview.cr.rasulkireev.com"]
+
+DEBUG = True
 
 LOGGING = {
     "version": 1,
@@ -13,7 +15,7 @@ LOGGING = {
         "file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "/home/rasulkireev/levreview/app.log",
+            "filename": "app.log",
             "formatter": "app",
         },
     },
