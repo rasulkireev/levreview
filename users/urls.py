@@ -18,7 +18,6 @@ urlpatterns = [
         create_customer_portal_session,
         name="create-customer-portal-session",
     ),
-    path("webhook/", successfull_payment_webhook, name="webhook"),
     path(
         "send-confirmation",
         resend_email_confirmation_email,

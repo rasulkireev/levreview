@@ -13,6 +13,7 @@ from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import FormView, UpdateView
+from djstripe import webhooks
 from djstripe.models import Customer, Plan, Price, Subscription
 
 from core.models import Location
@@ -90,26 +91,8 @@ def create_checkout_session(request):
     return redirect(checkout_session.url, code=303)
 
 
-@csrf_exempt
-@require_POST
-def successfull_payment_webhook(request):
-    payload = request.body
-    sig_header = request.META["HTTP_STRIPE_SIGNATURE"]
-    event = None
-
-    try:
-        event = stripe.Webhook.construct_event(payload, sig_header, settings.DJSTRIPE_WEBHOOK_SECRET)
-    except ValueError as e:
-        return HttpResponse(e, status=400)
-    except stripe.error.SignatureVerificationError as e:
-        return HttpResponse(e, status=400)
-
-    event_types = (
-        "customer.subscription.created",
-        "customer.subscription.updated",
-        "customer.subscription.deleted",
-    )
-
+@webhooks.handler("customer.subscription.completed")
+def successfull_payment_webhook(event, **kwargs):
     if event["type"] in "checkout.session.completed":
         subscription_id = event["data"]["object"]["subscription"]
         logger.info(f"Subscription ID: {subscription_id}")
