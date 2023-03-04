@@ -1,6 +1,15 @@
 # prod.py
 # Production settings for myapp
+import environ
+
 from . import *  # Import base settings from settings/__init__.py
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env()
 
 ALLOWED_HOSTS = ["www.levreview.com"]
 DEBUG = False
@@ -13,7 +22,7 @@ LOGGING = {
         "file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "/home/rasulkireev/levreview/app.log",
+            "filename": "app.log",
             "formatter": "app",
         },
     },
