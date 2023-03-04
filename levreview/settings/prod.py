@@ -1,15 +1,6 @@
 # prod.py
 # Production settings for myapp
-import environ
-
 from . import *  # Import base settings from settings/__init__.py
-
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-
-environ.Env.read_env()
 
 ALLOWED_HOSTS = ["www.levreview.com"]
 DEBUG = False
