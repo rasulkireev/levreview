@@ -19,4 +19,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 80
 
-CMD ["/app/deployment/entrypoint.sh"]
+CMD ["deployment/entrypoint.sh"]
