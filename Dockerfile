@@ -26,8 +26,6 @@ COPY --from=build /app/frontend/build/ ./frontend/build/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN python manage.py collectstatic --noinput
-
 EXPOSE $APP_PORT
 
 CMD ["./deployment/run.sh"]
