@@ -91,10 +91,10 @@ def create_checkout_session(request):
     return redirect(checkout_session.url, code=303)
 
 
-@webhooks.handler("customer.subscription.completed")
+@webhooks.handler("checkout.session.completed")
 def successfull_payment_webhook(event, **kwargs):
-    if event["type"] in "checkout.session.completed":
-        subscription_id = event["data"]["object"]["subscription"]
+    if event.type == "checkout.session.completed":
+        subscription_id = event.data["object"]["subscription"]
         logger.info(f"Subscription ID: {subscription_id}")
         Subscription.sync_from_stripe_data(stripe.Subscription.retrieve(subscription_id))
 
