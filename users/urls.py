@@ -6,7 +6,6 @@ from .views import (
     create_checkout_session,
     create_customer_portal_session,
     resend_email_confirmation_email,
-    successfull_payment_webhook,
 )
 
 urlpatterns = [
