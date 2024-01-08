@@ -168,7 +168,7 @@ SITE_ID = 1
 
 ANYMAIL = {
     "MAILGUN_API_KEY": env("MAILGUN_API_KEY"),
-    "MAILGUN_SENDER_DOMAIN": "mg.builtwithdjango.com",
+    "MAILGUN_SENDER_DOMAIN": "mg.levreview.com",
 }
 
 if DEBUG:
