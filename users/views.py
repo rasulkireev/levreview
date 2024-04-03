@@ -113,6 +113,6 @@ def create_customer_portal_session(request):
 
 def resend_email_confirmation_email(request):
     user = request.user
-    send_email_confirmation(request, user, user.email)
+    # send_email_confirmation(request, user, user.email)
 
     return redirect("settings")

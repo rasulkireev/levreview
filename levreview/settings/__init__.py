@@ -176,6 +176,9 @@ if DEBUG:
 else:
     EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
 
+# TODO(RASUL): Remove when figured our what to do with scams.
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 DEFAULT_FROM_EMAIL = "rasul@levreview.com"
 SERVER_EMAIL = "errors@levreview.com"
 
