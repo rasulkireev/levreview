@@ -22,24 +22,24 @@
               <div class="col-span-6 sm:col-span-3">
                 {{ form.first_name.errors | safe }}
                 <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                {% render_field form.first_name id="first-name" name="first-name" type="text" autocomplete="given-name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
+                {% render_field form.first_name id="first-name" name="first-name" type="text" autocomplete="given-name" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 {{ form.last_name.errors | safe }}
                 <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                {% render_field form.last_name id="last-name" name="last-name" type="text" autocomplete="family-name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
+                {% render_field form.last_name id="last-name" name="last-name" type="text" autocomplete="family-name" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 {{ form.email.errors | safe }}
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                {% render_field form.email id="email-address" name="email-address" type="text" autocomplete="email" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
+                {% render_field form.email id="email-address" name="email-address" type="text" autocomplete="email" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm" %}
               </div>
             </div>
           </div>
           <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
-            <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save</button>
+            <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 rounded-md border border-transparent shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save</button>
           </div>
         </div>
       </form>

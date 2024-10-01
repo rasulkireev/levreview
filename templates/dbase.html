@@ -19,7 +19,7 @@
     <title>Lev Review - Dashboard</title>
   {% endblock meta %}
 
-  <script defer data-domain="levreview.com" src="https://plausible.cr.lvtd.dev/js/script.js"></script>
+  <script defer data-domain="levreview.com" src="https://plausible-v2.cr.lvtd.dev/js/script.js"></script>
 
   {% stylesheet_pack 'hotwire' attrs='data-turbo-track="reload"' %}
   {% javascript_pack 'hotwire' attrs='data-turbo-track="reload" defer' %}
@@ -33,26 +33,26 @@
   {% block default_messages %}
     {% include "components/messages.html" with messages=messages %}
   {% endblock default_messages %}
-  <div class="relative flex flex-col min-h-full">
+  <div class="flex relative flex-col min-h-full">
     <!-- 3 column wrapper -->
-    <div class="flex-grow w-full max-w-6xl mx-auto lg:flex xl:px-8">
+    <div class="flex-grow mx-auto w-full max-w-6xl lg:flex xl:px-8">
       <!-- Left sidebar & main wrapper -->
       <div class="flex-1 min-w-0 bg-white xl:flex">
         <!-- Account profile -->
         <div class="bg-white md:pt-10 xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
-          <div class="py-6 pl-4 pr-6 sm:pl-6 lg:pl-8 xl:pl-0">
-            <div class="flex items-center justify-between">
+          <div class="py-6 pr-6 pl-4 sm:pl-6 lg:pl-8 xl:pl-0">
+            <div class="flex justify-between items-center">
               <div class="flex-1 space-y-8">
                 <div class="space-y-8 sm:flex sm:items-center sm:justify-between sm:space-y-0 xl:block xl:space-y-8">
                   <!-- Action buttons -->
                   <div class="flex flex-col space-y-4 sm:flex-row xl:flex-col">
-                    <a href="{% url 'dashboard' %}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                    <a href="{% url 'dashboard' %}" class="inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
                       Home
                     </a>
-                    <a href="{% url 'settings' %}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                    <a href="{% url 'settings' %}" class="inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
                       Settings
                     </a>
-                    <a href="{% url 'account_logout' %}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
+                    <a href="{% url 'account_logout' %}" class="inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">
                       Sign Out
                     </a>
                   </div>
