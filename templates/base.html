@@ -10,9 +10,9 @@
   <!-- Other meta stuff -->
   <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
   <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'vendors/favicon/logo.jpg' %}"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  {% block extra_head %}
+  {% endblock extra_head %}
 
   {% block meta %}
     <title>Lev Review</title>

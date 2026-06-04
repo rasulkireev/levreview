@@ -1,7 +1,6 @@
 {
   "files": [
-    "templates/base.html",
-    "templates/dbase.html"
+    "templates/base.html"
   ],
   "insertBefore": "</body>",
   "commentSyntax": "html",
