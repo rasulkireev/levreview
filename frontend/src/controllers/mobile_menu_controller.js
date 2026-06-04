@@ -53,7 +53,10 @@ export default class extends Controller {
   }
 
   hideOnOutside(event) {
-    if (!this.element.contains(event.target)) {
+    if (
+      !this.menuTarget.classList.contains("hidden") &&
+      !this.element.contains(event.target)
+    ) {
       this.close();
     }
   }
