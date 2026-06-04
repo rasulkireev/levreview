@@ -25,9 +25,25 @@ export default class extends Controller {
     this.menuTarget.classList.add("hidden");
     this.buttonTarget.setAttribute("aria-expanded", "false");
 
-    if (event) {
+    if (this.shouldReturnFocus(event)) {
       this.buttonTarget.focus({ preventScroll: true });
     }
+  }
+
+  closeAndFocusSection(event) {
+    const hash = event.currentTarget.hash;
+    const target = hash ? document.getElementById(hash.slice(1)) : null;
+
+    if (!target) {
+      this.close(event);
+      return;
+    }
+
+    event.preventDefault();
+    this.close();
+    window.history.pushState(null, "", hash);
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ block: "start" });
   }
 
   closeOnEscape(event) {
@@ -40,5 +56,12 @@ export default class extends Controller {
     if (!this.element.contains(event.target)) {
       this.close();
     }
+  }
+
+  shouldReturnFocus(event) {
+    return Boolean(
+      event &&
+        (event.type === "keydown" || event.currentTarget.tagName === "BUTTON")
+    );
   }
 }

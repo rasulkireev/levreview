@@ -53,8 +53,8 @@
     </div>
 
     <div class="mt-6 grid gap-3">
-      <a href="#workflow" data-action="mobile-menu#close" class="rounded-lg px-3 py-2 text-base font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Workflow</a>
-      <a href="#pricing" data-action="mobile-menu#close" class="rounded-lg px-3 py-2 text-base font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Pricing</a>
+      <a href="#workflow" data-action="mobile-menu#closeAndFocusSection" class="rounded-lg px-3 py-2 text-base font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Workflow</a>
+      <a href="#pricing" data-action="mobile-menu#closeAndFocusSection" class="rounded-lg px-3 py-2 text-base font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Pricing</a>
       {% if user.is_authenticated %}
         <a href="{% url 'dashboard' %}" data-action="mobile-menu#close" class="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-4 py-3 text-base font-semibold text-[#07100d]">Open dashboard</a>
       {% else %}
