@@ -1,126 +1,73 @@
-<div class="bg-gray-900">
-  <div class="pt-12 sm:pt-16 lg:pt-24">
-    <div class="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto space-y-2 lg:max-w-none">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">Pricing</h2>
-        <!-- <p class="text-xl text-gray-300">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.</p> -->
+<section id="pricing" class="bg-[#07100d] py-16 text-white sm:py-20 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+      <div>
+        <p class="text-sm font-semibold text-emerald-200">Pricing</p>
+        <h2 class="font-display mt-4 max-w-xl text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+          Start free. Upgrade when recovery details matter.
+        </h2>
       </div>
+      <p class="max-w-2xl text-lg leading-8 text-white/70 lg:justify-self-end">
+        The free plan covers simple collection across locations. Pro adds the detail and customization needed when review recovery becomes part of daily operations.
+      </p>
     </div>
-  </div>
-  <div class="pb-12 mt-8 bg-gray-50 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24">
-    <div class="relative">
-      <div class="absolute inset-0 bg-gray-900 h-3/4"></div>
-      <div class="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-md mx-auto space-y-4 lg:grid lg:max-w-5xl lg:grid-cols-2 lg:gap-5 lg:space-y-0">
-          <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
-              <div>
-                <h3 class="inline-flex px-4 py-1 text-base font-semibold text-orange-600 bg-orange-100 rounded-full" id="tier-standard">Standard</h3>
-              </div>
-              <div class="flex items-baseline mt-4 text-6xl font-bold tracking-tight">
-                Free
-              </div>
-              <p class="mt-5 text-lg text-gray-500">If you just want to collect more reviews.</p>
-            </div>
-            <div class="flex flex-col justify-between flex-1 px-6 pt-6 pb-8 space-y-6 bg-gray-50 sm:p-10 sm:pt-6">
-              <ul role="list" class="space-y-4">
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Unlimited Location</p>
-                </li>
 
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Unlimited Reviews</p>
-                </li>
-              </ul>
-              <div class="rounded-md shadow">
-                <a href="{% url 'account_signup' %}" class="flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-900" aria-describedby="tier-standard">Get started</a>
-              </div>
-            </div>
+    <div class="mt-10 grid gap-5 lg:grid-cols-2">
+      <article class="rounded-lg border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h3 id="tier-free" class="text-2xl font-bold text-white">Free</h3>
+            <p class="mt-2 text-base leading-7 text-white/60">For teams that need a clean review link.</p>
           </div>
+          <div class="font-display text-5xl font-bold tracking-tight text-white">$0</div>
+        </div>
 
-          <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-            <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
-              <div>
-                <h3 class="inline-flex px-4 py-1 text-base font-semibold text-orange-600 bg-orange-100 rounded-full" id="tier-standard">Pro</h3>
-              </div>
-              <div class="flex items-baseline mt-4 text-6xl font-bold tracking-tight">
-                $299
-                <span class="ml-1 text-2xl font-medium tracking-normal text-gray-500">/mo</span>
-              </div>
-              <p class="mt-5 text-lg text-gray-500">If you are serious about your Google Rating.</p>
-            </div>
-            <div class="flex flex-col justify-between flex-1 px-6 pt-6 pb-8 space-y-6 bg-gray-50 sm:p-10 sm:pt-6">
-              <ul role="list" class="space-y-4">
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Everything in Free +</p>
-                </li>
+        <ul role="list" class="mt-8 grid gap-4 text-base text-white/75">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-emerald-300"></span>
+            Unlimited locations
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-emerald-300"></span>
+            Unlimited review links
+          </li>
+        </ul>
 
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Review Details</p>
-                </li>
+        <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg border border-white/20 px-5 py-3 text-base font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#07100d]" aria-describedby="tier-free">Start free</a>
+      </article>
 
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Review Form Customization</p>
-                </li>
-
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Feature Suggestions</p>
-                </li>
-
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <p class="ml-3 text-base text-gray-700">Priority Support</p>
-                </li>
-
-              </ul>
-              <div class="rounded-md shadow">
-                <a href="{% url 'account_signup' %}" class="flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-900" aria-describedby="tier-standard">Get started</a>
-              </div>
-            </div>
+      <article class="rounded-lg bg-[#f4f7f2] p-6 text-[#07100d] sm:p-8">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h3 id="tier-pro" class="text-2xl font-bold">Pro</h3>
+            <p class="mt-2 text-base leading-7 text-[#465b54]">For teams that treat review recovery as an operating system.</p>
+          </div>
+          <div class="font-display text-5xl font-bold tracking-tight">
+            $299<span class="text-xl font-semibold text-[#5d7169]">/mo</span>
           </div>
         </div>
-      </div>
+
+        <ul role="list" class="mt-8 grid gap-4 text-base text-[#33443f]">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
+            Everything in Free
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
+            Review details for unhappy customers
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
+            Review form customization
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
+            Feature suggestions and priority support
+          </li>
+        </ul>
+
+        <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg bg-[#07100d] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#10231d] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-[#f4f7f2]" aria-describedby="tier-pro">Start Pro</a>
+      </article>
     </div>
   </div>
-</div>
+</section>

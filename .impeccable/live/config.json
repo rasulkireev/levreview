@@ -1,0 +1,9 @@
+{
+  "files": [
+    "templates/base.html",
+    "templates/dbase.html"
+  ],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}
