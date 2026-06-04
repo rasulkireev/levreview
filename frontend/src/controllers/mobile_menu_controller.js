@@ -21,9 +21,19 @@ export default class extends Controller {
     this.buttonTarget.setAttribute("aria-expanded", "true");
   }
 
-  close() {
+  close(event) {
     this.menuTarget.classList.add("hidden");
     this.buttonTarget.setAttribute("aria-expanded", "false");
+
+    if (event) {
+      this.buttonTarget.focus({ preventScroll: true });
+    }
+  }
+
+  closeOnEscape(event) {
+    if (event.key === "Escape" && !this.menuTarget.classList.contains("hidden")) {
+      this.close(event);
+    }
   }
 
   hideOnOutside(event) {

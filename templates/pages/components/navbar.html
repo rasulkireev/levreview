@@ -1,6 +1,6 @@
 {% load webpack_loader static %}
 
-<header data-controller="mobile-menu" data-action="click@window->mobile-menu#hideOnOutside keydown.esc@window->mobile-menu#close" class="relative z-30">
+<header data-controller="mobile-menu" data-action="click@window->mobile-menu#hideOnOutside keydown@window->mobile-menu#closeOnEscape" class="relative z-30">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8" aria-label="Main navigation">
     <a href="{% url 'home' %}" class="group flex items-center gap-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#07100d]">
       <img class="h-10 w-10 rounded-lg object-cover ring-1 ring-white/15" src="{% static 'vendors/favicon/logo.jpg' %}" alt="Lev Review" />
