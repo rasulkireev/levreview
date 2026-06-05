@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /dashboard
+Disallow: /dashboard/
 Allow: /
 
 Sitemap: https://levreview.com/sitemap.xml
