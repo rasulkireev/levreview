@@ -8,10 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Other meta stuff -->
-  <!-- ADD LOGOOOOOOOO -->
-  <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
   <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
   <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'vendors/favicon/logo.jpg' %}"/>
+
+  {% block extra_head %}
+  {% endblock extra_head %}
 
   {% block meta %}
     <title>Lev Review</title>
