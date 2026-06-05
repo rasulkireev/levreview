@@ -10,6 +10,9 @@
   <link rel="apple-touch-icon" href="{% static 'vendors/favicon/logo.jpg' %}" />
   <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'vendors/favicon/logo.jpg' %}"/>
 
+  {% block extra_head %}
+  {% endblock extra_head %}
+
   {% block meta %}
     <title>Google Review Management for Local Businesses | Lev Review</title>
     <meta name="description" content="Route happy customers to Google and collect private feedback from unhappy customers before low ratings hit your public profile."/>

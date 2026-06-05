@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load webpack_loader static %}
 
+{% block extra_head %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+{% endblock extra_head %}
+
 {% block meta %}
   <title>Google Review Management for Local Businesses | Lev Review</title>
   <meta property="og:title" content="Google Review Management for Local Businesses | Lev Review" />
@@ -72,14 +78,13 @@
 {% endblock meta %}
 
 {% block content %}
-  {% include "pages/components/hero.html" %}
-  {% include "pages/components/how-it-works.html" %}
-
-  <div class="relative">
-    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
-    </div>
-  </div>
-
-  {% include "pages/components/pricing.html" %}
+  <main class="home-shell">
+    {% include "pages/components/hero.html" %}
+    {% include "pages/components/how-it-works.html" %}
+    {% include "pages/components/pricing.html" %}
+  </main>
 {% endblock content %}
+
+{% block footer %}
+  {% include "components/home-footer.html" %}
+{% endblock footer %}
