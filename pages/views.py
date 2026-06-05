@@ -13,6 +13,18 @@ class HomeView(TemplateView):
     template_name = "pages/home.html"
 
 
+class PrivacyView(TemplateView):
+    template_name = "pages/privacy.html"
+
+
+class TermsView(TemplateView):
+    template_name = "pages/terms.html"
+
+
+class ContactView(TemplateView):
+    template_name = "pages/contact.html"
+
+
 class DashboardView(LoginRequiredMixin, TemplateView):
     login_url = "account_login"
     template_name = "pages/dashboard.html"

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+  <title>Contact | Lev Review</title>
+  <meta name="description" content="Contact Lev Review for questions about Google review routing, private feedback collection, accounts, or billing."/>
+  <link rel="canonical" href="https://levreview.com/contact/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lev Review" />
+  <meta property="og:title" content="Contact | Lev Review" />
+  <meta property="og:url" content="https://levreview.com/contact/" />
+  <meta property="og:description" content="Contact Lev Review for questions about Google review routing, private feedback collection, accounts, or billing."/>
+  <meta property="og:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact | Lev Review" />
+  <meta name="twitter:description" content="Contact Lev Review for questions about Google review routing, private feedback collection, accounts, or billing."/>
+  <meta name="twitter:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
+{% endblock meta %}
+
+{% block content %}
+  <main class="px-4 py-16 bg-white sm:px-6 lg:px-8">
+    <section class="max-w-3xl mx-auto">
+      <p class="text-sm font-semibold text-orange-600">Contact</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900">Contact Lev Review</h1>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        For account, billing, or product questions, email us and include the business location or account email if relevant.
+      </p>
+      <div class="mt-8">
+        <a href="mailto:rasul@levreview.com" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-orange-600 border border-transparent rounded-md hover:bg-orange-700">
+          rasul@levreview.com
+        </a>
+      </div>
+    </section>
+  </main>
+{% endblock content %}

@@ -2,20 +2,73 @@
 {% load webpack_loader static %}
 
 {% block meta %}
-  <title>Lev Review</title>
-  <meta property="og:title" content="Lev Review" />
-  <meta name="twitter:title" content="Lev Review" />
-  <meta name="description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
-  <meta property="og:description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
-  <meta name="twitter:description" content="Your business deserves the best reviews. We will help you identify unhappy customers before they give you a bad review on Google, so that you can fix their problem."/>
-  <link rel="canonical" href="https://{{ request.get_host }}/" />
-  <meta property="og:url" content="https://{{ request.get_host }}/" />
-  <meta property="og:image" content="https://{{ request.get_host }}{% static 'vendors/favicon/logo.jpg' %}" />
-  <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'vendors/favicon/logo.jpg' %}" />
+  <title>Google Review Management for Local Businesses | Lev Review</title>
+  <meta property="og:title" content="Google Review Management for Local Businesses | Lev Review" />
+  <meta name="twitter:title" content="Google Review Management for Local Businesses | Lev Review" />
+  <meta name="description" content="Route happy customers to Google and collect private feedback from unhappy customers before low ratings hit your public profile."/>
+  <meta property="og:description" content="Route happy customers to Google and collect private feedback from unhappy customers before low ratings hit your public profile."/>
+  <meta name="twitter:description" content="Route happy customers to Google and collect private feedback from unhappy customers before low ratings hit your public profile."/>
+  <link rel="canonical" href="https://levreview.com/" />
+  <meta property="og:url" content="https://levreview.com/" />
+  <meta property="og:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
+  <meta name="twitter:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lev Review" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@rasulkireev" />
   <meta name="twitter:site" content="@rasulkireev" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://levreview.com/#organization",
+          "name": "Lev Review",
+          "url": "https://levreview.com/",
+          "logo": "https://levreview.com{% static 'vendors/favicon/logo.jpg' %}",
+          "email": "rasul@levreview.com"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://levreview.com/#website",
+          "name": "Lev Review",
+          "url": "https://levreview.com/",
+          "publisher": {
+            "@id": "https://levreview.com/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://levreview.com/#software",
+          "name": "Lev Review",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "url": "https://levreview.com/",
+          "description": "Google review management software that routes happy customers to Google and collects private feedback from unhappy customers.",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Standard",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            {
+              "@type": "Offer",
+              "name": "Pro",
+              "price": "299",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          ],
+          "publisher": {
+            "@id": "https://levreview.com/#organization"
+          }
+        }
+      ]
+    }
+  </script>
 {% endblock meta %}
 
 {% block content %}
