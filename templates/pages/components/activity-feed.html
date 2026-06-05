@@ -4,7 +4,7 @@
 <div class="px-4 mt-2 sm:px-6 lg:px-8 bg-gray-50">
   <div>
     <div class="flex items-center pt-5">
-      <h2 class="flex-1 text-lg font-medium">All Activity</h2>
+      <h2 class="flex-1 text-lg font-medium">Recent feedback</h2>
     </div>
     <div>
       <ul role="list" class="divide-y divide-gray-200">
@@ -20,9 +20,9 @@
                       {% else %}
                         Someone
                       {% endif %}
-                        left a
+                        left
                         <span class="inline-block" data-stars-target="stars" value="{{ review.rating }}"></span>
-                        <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">review</a>
+                        <a class="font-semibold text-gray-800 underline" href="{% url 'detail-review' review.pk %}">feedback</a>
                         for <a class="font-semibold text-gray-800 underline" href="{% url 'detail-location' review.location.google_place_id %}">{{ review.location.name }}</a>,
                         {{ review.created|timesince }} ago.
                     </p>
@@ -37,9 +37,9 @@
             <div class="flex-1 space-y-1">
               <div class="flex items-center justify-between space-x-3">
                 {% if not subscription.status == "active" %}
-                  <p class="text-sm text-gray-500">Activity details are only available to PRO users.</p>
+                  <p class="text-sm text-gray-500">Upgrade to Pro to see private feedback details.</p>
                 {% else %}
-                  <p class="text-sm text-gray-500">No Activity Yet</p>
+                  <p class="text-sm text-gray-500">No feedback yet. Share a review link to start collecting responses.</p>
                 {% endif %}
               </div>
             </div>

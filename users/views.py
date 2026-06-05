@@ -31,7 +31,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = "account_login"
     model = CustomUser
     fields = ["first_name", "last_name", "email"]
-    success_message = "User Profile Updated"
+    success_message = "Profile details saved."
     success_url = reverse_lazy("settings")
     template_name = "account/settings.html"
 

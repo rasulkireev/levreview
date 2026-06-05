@@ -10,7 +10,7 @@
           Subscription:
           <span class="text-orange-700">
             {% if not customer %}
-              Unverified
+              Free
             {% elif subscription.status == "active" %}
               Pro
             {% else %}
@@ -19,7 +19,7 @@
           </span>
         </h3>
         <p class="mt-1 text-sm text-gray-600">
-          Here you can upgrade, cancel or change your payments information.
+          Upgrade, cancel, or update your billing details from one place.
         </p>
       </div>
     </div>
@@ -31,20 +31,20 @@
             class="inline-flex items-center px-3 py-2 text-white bg-orange-600 border-2 border-transparent rounded-md hover:bg-orange-700"
             type="submit"
           >
-            Manage
+            Manage Billing
           </button>
         </form>
       {% else %}
         {% if not email_verified %}
         <div data-controller="popover">
           <button disable data-action="mouseenter->popover#show mouseleave->popover#hide" class="relative inline-flex items-center px-3 py-2 text-white bg-orange-300 border-2 border-transparent rounded-md">
-            Upgrade
+            Upgrade to Pro
           </button>
 
           <template data-popover-target="content">
             <div data-popover-target="card" class="absolute w-full h-full bg-white border-2 border-solid rounded shadow-lg -left-16 top-12" style="bottom: 2rem; width: max-content;">
               <div class="flex items-center justify-center w-full h-full px-8 py-4">
-                <p class="text-sm text-gray-500">Please confirm your email first.</p>
+                <p class="text-sm text-gray-500">Confirm your email before upgrading.</p>
               </div>
             </div>
           </template>
@@ -54,7 +54,7 @@
             class="inline-flex items-center px-3 py-2 text-white bg-orange-600 border-2 border-transparent rounded-md hover:bg-orange-700"
             href="{% url 'checkout' %}"
           >
-            Upgrade
+            Upgrade to Pro
           </a>
         {% endif %}
       {% endif %}

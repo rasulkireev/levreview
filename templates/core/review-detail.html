@@ -9,7 +9,7 @@
 <div class="bg-white lg:min-w-0 md:pt-10 lg:flex-1">
   <div class="pt-4 pb-4 pl-4 pr-6 border-t border-b border-gray-200 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6">
     <div class="flex items-center justify-between">
-      <h1 class="flex-1 pt-2 text-xl font-medium">Review for {{ object.location.name }}</h1>
+      <h1 class="flex-1 pt-2 text-xl font-medium">Feedback for {{ object.location.name }}</h1>
     </div>
   </div>
   <div class="overflow-hidden bg-white">
@@ -21,7 +21,7 @@
             {% if object.name %}
               {{ object.name }}
             {% else %}
-              Unknown
+              Not provided
             {% endif %}
           </dd>
         </div>
@@ -31,7 +31,7 @@
             {% if object.email %}
               {{ object.email }}
             {% else %}
-              Unknown
+              Not provided
             {% endif %}
           </dd>
         </div>
@@ -49,7 +49,7 @@
           </dd>
         </div>
         <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">Feeback</dt>
+          <dt class="text-sm font-medium text-gray-500">Feedback</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ object.feedback }}</dd>
         </div>
       </dl>
