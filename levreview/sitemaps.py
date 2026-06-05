@@ -3,10 +3,12 @@ from django.urls import reverse
 
 
 class StaticViewSitemap(sitemaps.Sitemap):
+    protocol = "https"
+    changefreq = "monthly"
     priority = 0.5
 
     def items(self):
-        return ["home"]
+        return ["home", "privacy", "terms", "contact"]
 
     def location(self, item):
         return reverse(item)

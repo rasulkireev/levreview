@@ -1,11 +1,16 @@
 <footer class="bg-[#07100d] text-white">
   <div class="mx-auto flex max-w-7xl flex-col gap-6 border-t border-white/10 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
     <p class="text-sm text-white/50">&copy; 2022 LVTD, LLC. All rights reserved.</p>
-    <a href="mailto:rasul@levreview.com" class="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615A2.25 2.25 0 012.25 6.993V6.75" />
-      </svg>
-      Contact Lev Review
-    </a>
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+      <a href="{% url 'privacy' %}" class="text-sm font-semibold text-white/70 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300">Privacy</a>
+      <a href="{% url 'terms' %}" class="text-sm font-semibold text-white/70 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300">Terms</a>
+      <a href="{% url 'contact' %}" class="text-sm font-semibold text-white/70 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300">Contact</a>
+      <a href="mailto:rasul@levreview.com" class="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615A2.25 2.25 0 012.25 6.993V6.75" />
+        </svg>
+        Email
+      </a>
+    </div>
   </div>
 </footer>

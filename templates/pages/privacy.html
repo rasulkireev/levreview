@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+  <title>Privacy Policy | Lev Review</title>
+  <meta name="description" content="Read the Lev Review privacy policy for details about the information we collect and how we use it."/>
+  <link rel="canonical" href="https://levreview.com/privacy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lev Review" />
+  <meta property="og:title" content="Privacy Policy | Lev Review" />
+  <meta property="og:url" content="https://levreview.com/privacy/" />
+  <meta property="og:description" content="Read the Lev Review privacy policy for details about the information we collect and how we use it."/>
+  <meta property="og:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Privacy Policy | Lev Review" />
+  <meta name="twitter:description" content="Read the Lev Review privacy policy for details about the information we collect and how we use it."/>
+  <meta name="twitter:image" content="https://levreview.com{% static 'vendors/favicon/logo.jpg' %}" />
+{% endblock meta %}
+
+{% block content %}
+  <main class="px-4 py-16 bg-white sm:px-6 lg:px-8">
+    <article class="max-w-3xl mx-auto prose prose-slate">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: June 5, 2026</p>
+      <p>Lev Review helps businesses collect customer ratings, route happy customers to Google, and collect private feedback from customers who need follow-up.</p>
+
+      <h2>Information we collect</h2>
+      <p>We collect account details such as name and email address, business location details, review form responses, billing-related subscription status, and basic usage information needed to operate the service.</p>
+
+      <h2>How we use information</h2>
+      <p>We use information to provide the product, manage accounts, deliver review links and feedback forms, support customers, process payments, improve the service, and protect against abuse.</p>
+
+      <h2>Service providers</h2>
+      <p>We may use service providers for hosting, analytics, email delivery, payment processing, and error monitoring. These providers process information only as needed to support Lev Review.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href="mailto:rasul@levreview.com">rasul@levreview.com</a>.</p>
+    </article>
+  </main>
+{% endblock content %}
