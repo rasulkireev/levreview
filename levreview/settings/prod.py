@@ -7,6 +7,7 @@ CSRF_TRUSTED_ORIGINS = ["https://levreview.com", "https://www.levreview.com", "h
 
 DEBUG = False
 CANONICAL_HOST = "levreview.com"
+CANONICAL_HOST_REDIRECT_EXEMPT_HOSTS = ["levreview.cr.lvtd.dev"]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = True

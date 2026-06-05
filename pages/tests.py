@@ -32,7 +32,18 @@ class SeoRouteTests(TestCase):
         SECURE_SSL_REDIRECT=False,
     )
     def test_noncanonical_host_redirects_to_canonical_host(self):
-        response = self.client.get("/", secure=True, HTTP_HOST="www.levreview.com")
+        response = self.client.get("/privacy/?ref=google", secure=False, HTTP_HOST="www.levreview.com")
 
         self.assertEqual(response.status_code, 301)
-        self.assertEqual(response["Location"], "https://levreview.com/")
+        self.assertEqual(response["Location"], "https://levreview.com/privacy/?ref=google")
+
+    @override_settings(
+        ALLOWED_HOSTS=["levreview.com", "levreview.cr.lvtd.dev"],
+        CANONICAL_HOST="levreview.com",
+        CANONICAL_HOST_REDIRECT_EXEMPT_HOSTS=["levreview.cr.lvtd.dev"],
+        SECURE_SSL_REDIRECT=False,
+    )
+    def test_exempt_host_does_not_redirect_to_canonical_host(self):
+        response = self.client.get(reverse("robots"), secure=True, HTTP_HOST="levreview.cr.lvtd.dev")
+
+        self.assertEqual(response.status_code, 200)
