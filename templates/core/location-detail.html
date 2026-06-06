@@ -26,7 +26,7 @@
     </p>
   </div>
   <div>
-    <h2 class="px-4 pt-6 pb-2 font-medium sm:px-6 lg:px-8">Here are some ways you can start collecting reviews.</h2>
+    <h2 class="px-4 pt-6 pb-2 font-medium sm:px-6 lg:px-8">Share this location's review link.</h2>
     <div data-controller="dropdown">
       <div>
         <button
@@ -37,7 +37,7 @@
           aria-haspopup="true"
           data-action="dropdown#toggle click@window->dropdown#hide"
         >
-          Simply Sharing the Link
+          Send the direct link
           <!-- Heroicon name: mini/chevron-down -->
           <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
@@ -60,7 +60,7 @@
         <div data-controller="clipboard" role="none" class="inline-block p-1 m-4 border border-gray-300 rounded-full focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
           <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
           <input data-clipboard-target="input" readonly class="hidden p-0 pl-1 text-sm text-gray-600 border-0 rounded-full md:inline focus:ring-0 outline-0 focus:outline-0" type="text" value="{{ request.get_host }}{% url 'create-review' object.google_place_id %}" />
-          <button data-clipboard-target="button" data-action="clipboard#copy" class="px-2 py-1 text-sm text-white bg-green-600 rounded-full">Copy to clipboard</button>
+          <button data-clipboard-target="button" data-action="clipboard#copy" class="px-2 py-1 text-sm text-white bg-green-600 rounded-full">Copy Review Link</button>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
           aria-haspopup="true"
           data-action="dropdown#toggle click@window->dropdown#hide"
         >
-          Embedding a Link Into a Button
+          Add a review button to your site
           <!-- Heroicon name: mini/chevron-down -->
           <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
@@ -100,14 +100,14 @@
     <span style="color: #1e90ff; font-weight: bold">&lt;a</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">"{{ request.get_host }}{% url 'create-review' object.google_place_id %}"</span>
         <span style="color: #1e90ff">style=</span><span style="color: #aa5500">&quot;display: inline-flex; align-items: center; border-radius: 0.25rem; border-width: 1px; border-color: transparent; --tw-bg-opacity: 1; background-color: rgb(79 70 229 / var(--tw-bg-opacity)); padding-left: 10px; padding-right: 10px; padding-top: 6px; padding-bottom: 6px; font-size: 12px; font-weight: 500; --tw-text-opacity: 1; color: rgb(255 255 255 / var(--tw-text-opacity)); --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color); box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);&quot;</span>
     <span style="color: #1e90ff; font-weight: bold">&gt;</span>
-      Review Us
+      Leave a Review
     <span style="color: #1e90ff; font-weight: bold">&lt;/a&gt;</span>
     </pre>
           </div>
           <p class="mt-4">
-            This will yield a button/link that will look like this
+            This creates a button your customers can use to leave feedback.
             <button class="inline-flex items-center rounded border border-transparent bg-orange-600 px-2.5 py-1.5 text-xs font-medium text-white hover:bg-orange-700">
-              Review Us
+              Leave a Review
             </button>
           </p>
         </div>
@@ -123,7 +123,7 @@
           aria-haspopup="true"
           data-action="dropdown#toggle click@window->dropdown#hide"
         >
-          Using a QR Code
+          Print or display a QR code
           <!-- Heroicon name: mini/chevron-down -->
           <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />

@@ -4,11 +4,11 @@
       <div>
         <p class="text-sm font-semibold text-emerald-200">Pricing</p>
         <h2 class="font-display mt-4 max-w-xl text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-          Start free. Upgrade when recovery details matter.
+          Start free. Upgrade when feedback controls matter.
         </h2>
       </div>
       <p class="max-w-2xl text-lg leading-8 text-white/70 lg:justify-self-end">
-        The free plan covers simple collection across locations. Pro adds the detail and customization needed when review recovery becomes part of daily operations.
+        The free plan covers simple Google review links across locations. Pro adds private feedback details and rating controls for teams that need more insight.
       </p>
     </div>
 
@@ -17,7 +17,7 @@
         <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h3 id="tier-free" class="text-2xl font-bold text-white">Free</h3>
-            <p class="mt-2 text-base leading-7 text-white/60">For teams that need a clean review link.</p>
+            <p class="mt-2 text-base leading-7 text-white/60">For businesses that need a clean Google review link.</p>
           </div>
           <div class="font-display text-5xl font-bold tracking-tight text-white">$0</div>
         </div>
@@ -33,14 +33,18 @@
           </li>
         </ul>
 
-        <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg border border-white/20 px-5 py-3 text-base font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#07100d]" aria-describedby="tier-free">Start free</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'dashboard' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg border border-white/20 px-5 py-3 text-base font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#07100d]" aria-describedby="tier-free">Open Dashboard</a>
+        {% else %}
+          <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg border border-white/20 px-5 py-3 text-base font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#07100d]" aria-describedby="tier-free">Create a Free Link</a>
+        {% endif %}
       </article>
 
       <article class="rounded-lg bg-[#f4f7f2] p-6 text-[#07100d] sm:p-8">
         <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h3 id="tier-pro" class="text-2xl font-bold">Pro</h3>
-            <p class="mt-2 text-base leading-7 text-[#465b54]">For teams that treat review recovery as an operating system.</p>
+            <p class="mt-2 text-base leading-7 text-[#465b54]">For teams that need private feedback and redirect controls.</p>
           </div>
           <div class="font-display text-5xl font-bold tracking-tight">
             $299<span class="text-xl font-semibold text-[#5d7169]">/mo</span>
@@ -54,7 +58,7 @@
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
-            Review details for unhappy customers
+            Private feedback details
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-2 w-2 flex-none rounded-full bg-[#f97316]"></span>
@@ -66,7 +70,11 @@
           </li>
         </ul>
 
-        <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg bg-[#07100d] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#10231d] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-[#f4f7f2]" aria-describedby="tier-pro">Start Pro</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'settings' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg bg-[#07100d] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#10231d] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-[#f4f7f2]" aria-describedby="tier-pro">Upgrade From Settings</a>
+        {% else %}
+          <a href="{% url 'account_signup' %}" class="mt-9 inline-flex w-full items-center justify-center rounded-lg bg-[#07100d] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#10231d] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-[#f4f7f2]" aria-describedby="tier-pro">Create Account to Upgrade</a>
+        {% endif %}
       </article>
     </div>
   </div>

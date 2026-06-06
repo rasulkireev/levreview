@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 
 {% block meta %}
-  <title>Lev Review - Signup</title>
+  <title>Lev Review - Create your account</title>
   <meta name="robots" content="noindex" />
 {% endblock meta %}
 
@@ -11,12 +11,12 @@
   <div class="w-full max-w-md space-y-8">
       <div>
           <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900">
-              Create your account
+              Create your free account
           </h2>
           <p class="mt-2 text-sm text-center text-gray-600">
-            Or
+            Already have an account?
             <a href="{% url 'account_login' %}" class="font-medium text-orange-600 hover:text-orange-500">
-                login if you have one already.
+                Sign in.
             </a>
         </p>
       </div>
@@ -28,7 +28,7 @@
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
             {{ form.email.errors | safe }}
-            <label for="email" class="sr-only">Username</label>
+            <label for="email" class="sr-only">Email</label>
             {% render_field form.email id="email" name="email" placeholder="Email" type="email" autocomplete="email" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" %}
           </div>
           <div>
@@ -39,7 +39,7 @@
           <div>
             {{ form.password2.errors | safe }}
             <label for="password2" class="sr-only">Password</label>
-            {% render_field form.password2 id="password2" name="password2" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Cofirm Password" %}
+            {% render_field form.password2 id="password2" name="password2" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Confirm password" %}
           </div>
         </div>
 
@@ -62,7 +62,7 @@
                               clip-rule="evenodd"/>
                     </svg>
                 </span>
-                Sign up
+                Create Free Account
             </button>
         </div>
       </form>

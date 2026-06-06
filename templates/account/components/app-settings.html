@@ -6,7 +6,10 @@
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Form Customization</h3>
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Review form settings</h3>
+        <p class="mt-1 text-sm text-gray-600">
+          Choose which ratings should send customers to Google. Lower ratings stay private so your team can follow up.
+        </p>
       </div>
     </div>
     {% if subscription.status == "active" %}
@@ -19,18 +22,18 @@
               <div>
                 <input type="number" class="hidden" data-minRating-target="minRating" value="{{ min_rating }}" />
                 {{ min_rating_form.min_rating.errors | safe }}
-                <label for="minRating" class="block text-sm font-medium text-gray-700">Min Rating Redirect</label>
+                <label for="minRating" class="block text-sm font-medium text-gray-700">Minimum rating sent to Google</label>
                 {% render_field min_rating_form.min_rating id="minRating" name="minRating" class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %}
               </div>
             </div>
             <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
-              <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save</button>
+              <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-md shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save Review Settings</button>
             </div>
           </div>
         </form>
       </div>
     {% else %}
-      <p class="px-4 text-sm text-gray-500">Form Customization is only available to PRO users.</p>
+      <p class="px-4 text-sm text-gray-500">Upgrade to Pro to customize which ratings are sent to Google.</p>
     {% endif %}
   </div>
 </div>
