@@ -190,6 +190,8 @@ Do not introduce purple gradients, gray-heavy SaaS palettes, beige branding, blu
 
 Use Sora for display headings and important numeric values. Use Public Sans for body copy, controls, forms, navigation, and dashboard text. Keep headings confident but not oversized inside dashboard panels or forms.
 
+Today these Google Fonts are loaded only by `templates/pages/home.html`. New pages that rely on these typography tokens should either add the same font preload/link block deliberately or move the font loading to the relevant base template as part of the same change.
+
 Letter spacing should be `0px`. Do not add negative tracking to new components. Use weight, scale, and spacing for hierarchy.
 
 ## Layout

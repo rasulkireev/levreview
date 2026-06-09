@@ -56,7 +56,7 @@ Required settings are read from environment variables. Commonly needed values in
 - `STRIPE_LIVE_SECRET_KEY`
 - `STRIPE_TEST_SECRET_KEY`
 - `STRIPE_LIVE_MODE`
-- `dsn` for Sentry outside debug mode
+- `dsn` for Sentry outside debug mode. This is intentionally lowercase because current settings call `env("dsn")`; do not silently rename it to `SENTRY_DSN` without updating settings and deployment config together.
 
 Do not commit real values for any of these. When adding new configuration, prefer typed environment access in Django settings and document the variable.
 

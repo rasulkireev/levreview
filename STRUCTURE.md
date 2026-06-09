@@ -79,7 +79,7 @@ Prefer extracting repeated UI into focused includes. Keep template names descrip
 - `frontend/webpack/`: shared, development, production, and watch Webpack configs.
 - `frontend/build/`: generated assets, ignored by git and produced by Webpack.
 
-Stimulus controller filenames use snake case with `_controller.js`; data-controller names become kebab-case in templates.
+New Stimulus controller filenames should use snake case with `_controller.js`; data-controller names become kebab-case in templates. Existing `frontend/src/controllers/minRating_controller.js` and `data-controller="minRating"` are legacy exceptions. Do not rename them casually because templates may depend on the current identifier.
 
 ## URL And Naming Patterns
 
